@@ -1,0 +1,14 @@
+<div class="row">
+  <div class="col-sm-3">
+     <div class="panelbar-wrapper">
+         <div class="row">
+           <div class="col-sm-4"><h5>{{title}}</h5></div>
+           <div class="col-sm-8"><button kendoButton (click)="addNewNewsItem()">Add Article</button></div>
+         </div>  
+         <app-news-item-list [newsItems]=newsItems></app-news-item-list>
+       </div>    
+   </div>
+   <div class="col-sm-9">
+     <router-outlet></router-outlet>
+   </div>
+ </div>

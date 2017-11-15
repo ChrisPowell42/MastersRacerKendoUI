@@ -1,0 +1,7 @@
+<strong>Upcoming Events:</strong>
+<p *ngIf='!nextEvents'>
+  No upcoming races.  
+</p>
+<div *ngIf='nextEvents'>
+  <app-race-schedule-list-item *ngFor='let event of nextEvents' [event]='event'></app-race-schedule-list-item>
+</div>

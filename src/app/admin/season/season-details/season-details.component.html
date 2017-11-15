@@ -1,0 +1,7 @@
+<h3>
+  {{season.startYear}}-{{season.endYear}}
+</h3>
+<div>
+  <span *ngIf='season.isCurrentSeason'>Active Season</span>
+  <p>{{season.notes}}</p>
+</div>

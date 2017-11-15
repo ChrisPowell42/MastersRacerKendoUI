@@ -1,0 +1,10 @@
+<p *ngIf='!newsItems'>
+  No News Articles
+</p>
+<kendo-panelbar *ngIf='newsItems'>
+  <kendo-panelbar-item *ngFor='let item of newsItems' [title]=item.title>
+    <ng-template kendoPanelBarContent>
+      <app-news-item-list-item [newsItem]=item></app-news-item-list-item>
+    </ng-template>
+  </kendo-panelbar-item>
+</kendo-panelbar>

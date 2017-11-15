@@ -1,0 +1,14 @@
+<div class="row">
+  <div class="col-sm-3">
+     <div class="panelbar-wrapper">
+         <div class="row">
+           <div class="col-sm-8"><h4>{{title}}</h4> {{activeSeason.startYear}} - {{activeSeason.endYear}}</div>
+           <div class="col-sm-4"><button kendoButton (click)="addNewRaceEvent()">Add Race</button></div>
+         </div>  
+         <app-race-event-list [raceEvents]=raceEvents></app-race-event-list>
+       </div>    
+   </div>
+   <div class="col-sm-9">
+     <router-outlet></router-outlet>
+   </div>
+ </div>

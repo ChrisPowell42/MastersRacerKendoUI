@@ -1,0 +1,11 @@
+<div class="racerName">
+  {{racer.bibNumber}} {{racer.name}} - {{racer.raceSeries.name}} {{racer.raceSeries.gender}}
+</div>
+<div class="row">
+  <div class="col-sm-6">
+    <button kendoButton (click)="onSelectDetails()">Details</button>
+  </div>
+  <div class="col-sm-6">
+    <button kendoButton (click)="onSelectEdit()">Edit</button>
+  </div>
+</div>

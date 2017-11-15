@@ -1,0 +1,8 @@
+<div *ngIf='!racers'>No Racers</div>
+<kendo-panelbar *ngIf='racers'>
+  <kendo-panelbar-item *ngFor='let racer of racers' [title]=racer.name>
+    <ng-template kendoPanelBarContent>
+      <app-racer-list-item [racer]=racer></app-racer-list-item>
+    </ng-template>
+  </kendo-panelbar-item>
+</kendo-panelbar>

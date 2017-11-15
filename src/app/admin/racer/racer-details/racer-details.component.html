@@ -1,0 +1,4 @@
+<h3>{{racer.name}} {{racer.bibNumber}}</h3>
+<p>{{racer.raceSeries.name}} {{racer.raceSeries.gender}}</p>
+<p *ngIf='racer.active'>Active</p>
+<p *ngIf='!racer.active'>Not currently active</p>

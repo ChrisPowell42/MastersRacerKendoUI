@@ -1,0 +1,35 @@
+<div class="panel panel-default">
+  <div class="panel-heading">Location Editor</div>
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-sm-6">
+        <label [for]="locname">Name:</label>
+        <input #locname [(ngModel)]="location.name">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-8">
+        <label [for]="description">Description:</label>
+        <textarea class="form-control" #description [(ngModel)]="location.description"></textarea>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <label [for]="posLat">Latitude:</label>
+        <input type="numeric" #posLat [(ngModel)]="location.latPos"/>
+      </div>
+      <div class="col-sm-6">
+        <label [for]="posLong">Longitude:</label>
+        <input type="numeric" #posLong [(ngModel)]="location.longPos"/>
+      </div>  
+    </div>
+    <div class="row">
+      <div class="col-sm-2">
+        <button kendoButton (click)="saveChanges()">Save</button>
+      </div>
+      <div class="col-sm-2">
+        <button kendoButton (click)="cancelChanges()">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,6 @@
+<h4>{{newsItem.title}}</h4> 
+<p>Article Type: {{newsItem.articleType.typeName}}</p>
+<p>{{newsItem.articleText}}</p>
+<div>
+  {{newsItem.postedOn | date:'mediumDate'}} by {{newsItem.postedBy}}
+</div>

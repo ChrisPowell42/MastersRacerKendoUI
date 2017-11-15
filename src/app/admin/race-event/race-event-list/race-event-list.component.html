@@ -1,0 +1,8 @@
+<div *ngIf='!raceEvents'>No Races</div>
+<kendo-panelbar *ngIf='raceEvents'>
+  <kendo-panelbar-item *ngFor='let raceEvent of raceEvents' [title]=raceEvent.raceName>
+    <ng-template kendoPanelBarContent>
+      <app-race-event-list-item [raceEvent]=raceEvent></app-race-event-list-item>
+    </ng-template>
+  </kendo-panelbar-item>
+</kendo-panelbar>

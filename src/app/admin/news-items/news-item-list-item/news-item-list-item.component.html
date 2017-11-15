@@ -1,0 +1,10 @@
+<div>
+  {{newsItem.articleType.typeName}} - {{newsItem.postedOn | date:'mediumDate'}} by {{newsItem.postedBy}}
+</div>
+<div class="row">
+  <div class="col-sm-6">
+    <button kendoButton (click)="onSelectDetails()">Details</button>
+  </div>
+  <div class="col-sm-6">
+    <button kendoButton (click)="onSelectEdit()">Edit</button>
+  </div>
