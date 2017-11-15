@@ -12,7 +12,7 @@ import { LoggerService } from '../../../services/logger.service';
 })
 export class NewsItemDetailsComponent {
 
-  private newsItem: NewsItemModel;
+  newsItem: NewsItemModel;
   
     constructor(private route: ActivatedRoute,
                 private logger: LoggerService) {

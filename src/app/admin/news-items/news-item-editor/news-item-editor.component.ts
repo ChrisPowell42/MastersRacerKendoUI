@@ -16,8 +16,8 @@ import { ConfirmationService } from '../../../services/confirmation.service';
 })
 export class NewsItemEditorComponent {
 
-  private newsItem: NewsItemModel;
-  private articleTypes: ArticleTypeModel[];
+  newsItem: NewsItemModel;
+  articleTypes: ArticleTypeModel[];
 
   constructor(private route: ActivatedRoute,
               private router: Router,
@@ -45,7 +45,7 @@ export class NewsItemEditorComponent {
 
   onDelete() {
     
-    this.cs.okay("Delete Article?")
+    this.cs.okCancel("Delete Article?")
            .subscribe(doit => this.handleDelete(doit));
            
   }

@@ -11,7 +11,7 @@ import { LoggerService } from '../../../services/logger.service';
 })
 export class RaceEventDetailsComponent {
 
-  private raceEvent: RaceEventModel;
+  raceEvent: RaceEventModel;
   
   constructor(private route: ActivatedRoute,
               private logger: LoggerService) {

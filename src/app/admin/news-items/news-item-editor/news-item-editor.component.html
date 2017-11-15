@@ -2,27 +2,51 @@
   <div class="panel-heading">Article Editor</div>
   <div class="panel-body">
     <div class="row">
-      <div class="col-sm-6">
-        <label [for]="title">Title:</label>
-        <input #title [(ngModel)]="newsItem.title">
+      <div class="col-sm-2">
+        <label [for]='articleType'>Race Series:</label>
+      </div>
+      <div class="col-sm-10">
+        <kendo-dropdownlist #articleType
+          [data]="articleTypes"
+          textField="typeName"
+          valueField="id"
+          [(ngModel)]="newsItem.articleType">
+        </kendo-dropdownlist>
       </div>
     </div>
     <div class="row">
-      <div class="col-sm-8">
+      <div class="col-sm-2">
+        <label [for]="title">Title:</label>
+      </div>
+      <div class="col-sm-10">
+        <input kendoTextBox #title [(ngModel)]="newsItem.title">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-2">
         <label [for]="article">Article:</label>
+      </div>
+      <div class="col-sm-10">          
         <textarea class="form-control" #article [(ngModel)]="newsItem.articleText"></textarea>
       </div>
     </div>
     <div class="row">
-      <div class="col-sm-2">
+      <div class="col-sm-12">&nbsp;<!--spacer--></div>
+    </div>
+    <div class="row">
+      <div class="col-sm-2"><!--spacer--></div>
+      <div class="col-sm-1">
         <button kendoButton (click)="onSaveChanges()">Save</button>
       </div>
-      <div class="col-sm-2">
+      <div class="col-sm-1">
         <button kendoButton (click)="onDelete()">Delete</button>
       </div>
-      <div class="col-sm-2">
+      <div class="col-sm-1">
         <button kendoButton (click)="onCancel()">Cancel</button>
       </div>
+      <div class="col-sm-6">
+          <p>Originally posted on {{newsItem.postedOn | date:'shortDate'}} by {{newsItem.postedBy}}</p>
+      </div>  
     </div>
   </div>
 </div>

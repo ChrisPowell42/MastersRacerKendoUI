@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 
+import { LoggerService } from './logger.service';
+
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/do';
@@ -23,7 +25,8 @@ export class AuthService {
     scope: 'openid'
   });
 
-  constructor(public router: Router) {}
+  constructor(public router: Router,
+              public logger: LoggerService) {}
 
   public login(): void {
     this.auth0.authorize();

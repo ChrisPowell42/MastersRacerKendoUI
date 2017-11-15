@@ -25,7 +25,6 @@ export class ConfirmationService {
 
   okCancel(message: string): Observable<boolean> {
   
-    
     let options:DialogAction[] = [this.okAction, this.cancelAction];
 
     return this.display(message, options).map(result => {
@@ -36,8 +35,13 @@ export class ConfirmationService {
       
       let actionResult: DialogAction = <DialogAction>result;
       
+      if (actionResult == this.okAction)
+        return true;
 
-    })
+      return false;
+
+    });
+
   }
 
   okay(message: string): Observable<boolean> {
@@ -54,8 +58,8 @@ export class ConfirmationService {
 
       if (actionResult == this.okAction)
         return true;
-      else
-        return false;
+      
+      return false;
       
     });
   }

@@ -12,7 +12,7 @@ import { LoggerService } from '../../../services/logger.service';
 })
 export class LocationDetailsComponent {
 
-  private location: LocationModel;
+  location: LocationModel;
 
   constructor(private route: ActivatedRoute,
     //private locationServe: LocationService,

@@ -13,8 +13,8 @@ import { LoggerService } from '../../services/logger.service';
 })
 export class HomeComponent {
 
-  private newsItems: NewsItemModel[];
-  private nextEvents: RaceEventModel[];
+  newsItems: NewsItemModel[];
+  nextEvents: RaceEventModel[];
 
   constructor(private route: ActivatedRoute,
               private router: Router,    

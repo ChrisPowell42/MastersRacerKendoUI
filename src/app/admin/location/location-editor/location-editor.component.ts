@@ -13,13 +13,13 @@ import { ErrorService } from '../../../services/error.service';
 })
 export class LocationEditorComponent {
 
-  private location: LocationModel;
+  location: LocationModel;
 
   constructor(private route: ActivatedRoute,
-    private router: Router,
-    private locationServe: LocationService,
-    private errorHandler: ErrorService,
-    private logger: LoggerService) {
+              private router: Router,
+              private locationServe: LocationService,
+              private errorHandler: ErrorService,
+              private logger: LoggerService) {
 
       this.route.data.subscribe(val => {
         //this.logger.log("LocationDetail Location Load");

@@ -17,10 +17,10 @@ import { RefDataService } from '../../../services/refdata.service';
 })
 export class RaceEventEditorComponent {
 
-  private raceEvent: RaceEventModel;
-  private activeSeason: SeasonModel;
-  private locations: LocationModel[];
-  private raceFormats: RaceFormatModel[];
+  raceEvent: RaceEventModel;
+  activeSeason: SeasonModel;
+  locations: LocationModel[];
+  raceFormats: RaceFormatModel[];
 
   private scheduledPhase: RacePhaseModel;
 

@@ -13,8 +13,8 @@ import { RacerService } from '../../../services/racer.service';
 })
 export class RacerEditorComponent  {
 
-  private racer: RacerModel;
-  private raceSeries: RaceSeriesModel[];
+  racer: RacerModel;
+  raceSeries: RaceSeriesModel[];
 
     constructor(private route: ActivatedRoute,
                 private router: Router,

@@ -13,7 +13,7 @@ import { LoggerService } from '../../../services/logger.service';
 })
 export class SeasonDetailsComponent {
 
-  private season: SeasonModel;
+  season: SeasonModel;
 
   constructor(private route: ActivatedRoute,
               private logger: LoggerService) {

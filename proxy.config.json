@@ -1,7 +1,8 @@
 {
     "/api/*": {
-        "target": "http://localhost:17585",
+        "target": "http://mastersracerapi.azurewebsites.net",
         "secure": false,
-        "logLevel": "debug"
+        "logLevel": "debug",
+        "changeOrigin": true
     }
 }

@@ -2,14 +2,18 @@
   <div class="panel-heading">Location Editor</div>
   <div class="panel-body">
     <div class="row">
-      <div class="col-sm-6">
+      <div class="col-sm-2">
         <label [for]="locname">Name:</label>
+      </div>
+      <div class="col-sm=10">
         <input #locname [(ngModel)]="location.name">
       </div>
     </div>
     <div class="row">
-      <div class="col-sm-8">
+      <div class="col-sm-2">
         <label [for]="description">Description:</label>
+      </div>
+      <div class="col-sm=10">
         <textarea class="form-control" #description [(ngModel)]="location.description"></textarea>
       </div>
     </div>
