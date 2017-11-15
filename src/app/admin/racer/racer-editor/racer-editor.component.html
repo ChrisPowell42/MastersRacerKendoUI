@@ -11,7 +11,6 @@
       <div class="col-sm-6">
         <label [for]="bibNumber">Bib Number:</label>
         <kendo-numerictextbox [min]="1" [max]="150" [format]="'n0'" #bibNumber [(ngModel)]="racer.bibNumber"></kendo-numerictextbox>
-        <!-- <input type="numeric" #bibNumber [(ngModel)]="racer.bibNumber"/>         -->
       </div>
     </div>
     <div class="row">
@@ -28,7 +27,7 @@
     <div class="row">
       <div class="col-sm-4">
         <label [for]="activeRacer">Is Active:</label>
-        <kendo-switch [(ngModel)]="racer.active"></kendo-switch>
+        <kendo-switch #activeRacer [(ngModel)]="racer.active"></kendo-switch>
       </div>
     </div>
     <div class="row">

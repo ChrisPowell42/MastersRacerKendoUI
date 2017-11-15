@@ -11,8 +11,8 @@ import { LoggerService } from '../../../services/logger.service';
 })
 export class NewsItemsComponent  {
 
-  private newsItems: NewsItemModel[];
-  private title: string = 'News Articles';
+  newsItems: NewsItemModel[];
+  title: string = 'News Articles';
 
   constructor(private route: ActivatedRoute,
               private router: Router,    

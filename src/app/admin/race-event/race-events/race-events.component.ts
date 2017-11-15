@@ -14,13 +14,13 @@ import { LoggerService } from '../../../services/logger.service';
 })
 export class RaceEventsComponent {
 
-  private raceEvents: RaceEventModel[];
-  private activeSeason: SeasonModel;
-  private title: string = "Races";
+  raceEvents: RaceEventModel[];
+  activeSeason: SeasonModel;
+  title: string = "Races";
 
   constructor(private route: ActivatedRoute,
-    private router: Router,    
-    private logger: LoggerService) {
+              private router: Router,    
+              private logger: LoggerService) {
 
       this.route.data.subscribe(val => {
         //this.logger.log(val);
