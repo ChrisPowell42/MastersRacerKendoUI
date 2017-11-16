@@ -35,6 +35,17 @@ export class NewsItemEditorComponent {
 
   onSaveChanges() {
 
+    if (this.newsItem.id == null) {
+      this.nis.addNewsItem(this.newsItem).subscribe( res => {
+        this.router.navigate(['/admin']).then( () => this.router.navigate([`/admin/newsitems/detail/${res.id}`]));        
+      });
+    }
+    else {
+      this.nis.saveNewsItem(this.newsItem).subscribe( res => {
+        this.router.navigate(['/admin']).then( () => this.router.navigate([`/admin/newsitems/detail/${this.newsItem.id}`]));        
+      });
+    }
+
   }
 
   onCancel() {
@@ -54,6 +65,9 @@ export class NewsItemEditorComponent {
 
     if (doDelete) {
       this.logger.log("Do it");
+      this.nis.removeNewsItem(this.newsItem.id).subscribe( res => {
+        this.router.navigate(['/admin']).then( () => this.router.navigate(['/admin/newsitems']));
+      });
     }
     else {
       this.logger.log("Don't do it.");

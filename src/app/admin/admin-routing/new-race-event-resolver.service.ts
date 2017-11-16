@@ -11,18 +11,18 @@ import { ErrorService } from '../../services/error.service';
 import { LoggerService } from '../../services/logger.service';
 
 @Injectable()
-export class NewRaceEventResolverService {
+export class NewRaceEventResolverService implements Resolve<RaceEventModel> {
 
   constructor (private res: RaceEventService,
-    private error: ErrorService,
-    private logger: LoggerService,
-    private router: Router) {}
+               private error: ErrorService,
+               private logger: LoggerService,
+               private router: Router) {}
 
-    resolve( route: ActivatedRouteSnapshot, state: RouterStateSnapshot): RaceEventModel {
+  resolve( route: ActivatedRouteSnapshot, state: RouterStateSnapshot): RaceEventModel {
       
-       //this.logger.log("Creating new Loction from Resolver");
-       return this.res.getNewRaceEvent();
- 
-     } 
+    //this.logger.log("Creating new Loction from Resolver");
+    return this.res.getNewRaceEvent();
+
+  } 
 
 }

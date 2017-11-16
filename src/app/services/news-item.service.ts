@@ -20,6 +20,17 @@ export class NewsItemService {
     private logger: LoggerService,
     private errorHandler: ErrorService) { }
 
+
+  newNewsItem(): NewsItemModel {
+
+    let newItem: NewsItemModel = new NewsItemModel();
+
+    newItem.postedBy = "Some user"; // will change to get the current user from the auth service.
+
+    return newItem;
+
+  }
+
   getNewsItems(): Observable<NewsItemModel[]> {
 
     return this.http.get<NewsItemModel[]>(this.newsItemsUrl)
