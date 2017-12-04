@@ -1,2 +1,4 @@
-<div><strong>{{event.raceName}}</strong> - {{event.raceFormat.code}}</div>
-<p>{{event.scheduledStartTime | date:'short'}}<br/>@{{event.location.name}}</p>
+<div><strong>{{event.raceName}}</strong></div>
+<div><strong>{{event.raceEventType.typeName}} {{event.raceFormat.code}}</strong></div>
+<div>{{event.scheduledStartTime | date:'short'}}<br/>@{{event.location.name}}</div>
+<hr/>

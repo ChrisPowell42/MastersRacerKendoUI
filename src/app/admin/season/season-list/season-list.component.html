@@ -1,6 +1,6 @@
 <div *ngIf='!seasons'>No Seasons</div>
 <kendo-panelbar *ngIf='seasons'>
-  <kendo-panelbar-item *ngFor='let season of seasons' [title]='season.startYear'>
+  <kendo-panelbar-item *ngFor='let season of seasons' [title]='season.label'>
     <ng-template kendoPanelBarContent>
       <app-season-list-item [season]=season></app-season-list-item>
     </ng-template>

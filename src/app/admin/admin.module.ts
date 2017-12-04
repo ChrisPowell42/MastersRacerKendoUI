@@ -7,6 +7,7 @@ import { SeasonModule } from './season/season.module';
 import { RacerModule } from './racer/racer.module';
 import { RaceEventModule } from './race-event/race-event.module';
 import { NewsItemsModule } from './news-items/news-items.module';
+import { RaceResultModule} from './race-result/race-result.module';
 
 import { LocationsResolverService } from './admin-routing/locations-resolver.service';
 import { LocationResolverService } from './admin-routing/location-resolver.service';
@@ -15,6 +16,7 @@ import { NewLocationResolverService } from './admin-routing/newlocation-resolver
 import { SeasonsResolverService } from './admin-routing/seasons-resolver.service';
 import { SeasonResolverService } from './admin-routing/season-resolver.service';
 import { ActiveSeasonResolverService } from './admin-routing/active-season-resolver.service';
+import { NewSeasonResolverService } from './admin-routing/new-season-resolver.service';
 
 import { RacersResolverService } from './admin-routing/racers-resolver.service';
 import { RacerResolverService } from './admin-routing/racer-resolver.service';
@@ -26,8 +28,9 @@ import { NewRaceEventResolverService } from './admin-routing/new-race-event-reso
 
 import { RaceSeriesResolverService } from './admin-routing/race-series-resolver.service';
 import { RaceFormatResolverService } from './admin-routing/race-format-resolver.service';
-import { RacePhaseResolverService } from './admin-routing/race-phase-resolver.service';
+import { RacePhasesResolverService } from './admin-routing/race-phases-resolver.service';
 import { ArticleTypesResolverService } from './admin-routing/article-types-resolver.service';
+import { RaceEventTypesResolverService } from './admin-routing/race-event-types-resolver.service';
 
 import { NewsItemsResolverService } from './admin-routing/news-items-resolver.service';
 import { NewsItemResolverService } from './admin-routing/news-item-resolver.service';
@@ -41,6 +44,7 @@ import { NewNewsItemResolverService } from './admin-routing/new-news-item-resolv
     RacerModule,
     RaceEventModule,
     NewsItemsModule,
+    RaceResultModule,
     AdminRoutingModule
   ],
   declarations: [ AdminComponent ],
@@ -54,6 +58,7 @@ import { NewNewsItemResolverService } from './admin-routing/new-news-item-resolv
                 SeasonsResolverService,
                 SeasonResolverService,
                 ActiveSeasonResolverService,
+                NewSeasonResolverService,
                 RaceEventResolverService,
                 RaceEventsResolverService,
                 NewRaceEventResolverService,
@@ -62,8 +67,9 @@ import { NewNewsItemResolverService } from './admin-routing/new-news-item-resolv
                 NewNewsItemResolverService,
                 RaceSeriesResolverService,
                 RaceFormatResolverService,
-                RacePhaseResolverService,
-                ArticleTypesResolverService
+                RacePhasesResolverService,
+                ArticleTypesResolverService,
+                RaceEventTypesResolverService
              ]
 })
 export class AdminModule { }

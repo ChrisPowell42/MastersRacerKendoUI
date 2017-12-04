@@ -24,6 +24,8 @@ export class RacerEditorComponent  {
       this.route.data.subscribe(val => {
         this.racer = val["racer"];
         this.raceSeries = val["raceSeries"];
+
+        this.logger.log(this.raceSeries);
       });
       
     }

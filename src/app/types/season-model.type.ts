@@ -4,4 +4,5 @@ export class SeasonModel {
     endYear: number;
     notes: string;
     isCurrentSeason: boolean;
+    label: string
 }

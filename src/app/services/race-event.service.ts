@@ -12,11 +12,14 @@ import { ErrorService } from './error.service';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/retry';
+import { RaceEventDefaultComponent } from '../admin/race-event/race-event-default/race-event-default.component';
 
 @Injectable()
 export class RaceEventService {
 
   private activeSeasonRacesUrl: string = '/api/raceevents/active';
+  private activeEventOfType: string = '/api/raceevents/active/eventtype';
+  private activeRaceByPhase: string = '/api/raceevents/active/race/phase';
   private raceEventUrl: string = '/api/raceevent';
   private nextEventsUrl: string = '/api/raceevents/next';
 
@@ -35,6 +38,26 @@ export class RaceEventService {
     return this.http.get<RaceEventModel[]>(this.activeSeasonRacesUrl)
                     .retry(3)
                     .catch(err => this.errorHandler.handleError(err));
+
+  }
+
+  getActiveEventsForType(raceEventTypeId:string): Observable<RaceEventModel[]> {
+
+    let url = `${this.activeEventOfType}/${raceEventTypeId}`;
+
+    return this.http.get<RaceEventModel[]>(url)
+                    .retry(3)
+                    .catch(err => this.errorHandler.handleError(err));
+
+  }
+
+  getActiveRacesForPhaseType(phaseTypeId:string): Observable<RaceEventModel[]> {
+
+    let url = `${this.activeRaceByPhase}/${phaseTypeId}`;
+
+    return this.http.get<RaceEventModel[]>(url)
+    .retry(3)
+    .catch(err => this.errorHandler.handleError(err));
 
   }
 

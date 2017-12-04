@@ -6,6 +6,7 @@ import { RaceFormatModel } from '../types/raceFormat.type';
 import { RaceSeriesModel } from '../types/raceSeries.type';
 import { RacePhaseModel } from '../types/racePhase.type';
 import { ArticleTypeModel } from '../types/article-type-model.type';
+import { RaceEventTypeModel } from '../types/raceEventType.type';
 
 import { LoggerService } from './logger.service';
 import { ErrorService } from './error.service';
@@ -24,6 +25,7 @@ export class RefDataService {
     private raceSeriesUrl = '/api/refdata/raceseries';
     private racePhasesUrl = '/api/refdata/racephases';
     private articleTypesUrl = '/api/refdata/articletypes';
+    private raceEventTypesUrl = '/api/refdata/raceeventtypes';
 
     getRaceFormats(): Observable<RaceFormatModel[]> {
 
@@ -39,6 +41,7 @@ export class RefDataService {
       //this.logger.log('Getting RaceSeries, RefDataService');
 
       return this.http.get<RaceSeriesModel[]>(this.raceSeriesUrl)
+                      .do(rsa => rsa.forEach( rs => rs.series = `${rs.name} ${rs.gender}`))
                       .retry(3)
                       .catch(error => this.errorHandler.handleError(error));
 
@@ -66,6 +69,13 @@ export class RefDataService {
 
       return phases.find(x => x.id === RacePhaseModel.scheduledId);
 
+    }
+
+    getRaceEventTypes(): Observable<RaceEventTypeModel[]> {
+
+      return this.http.get<RaceEventTypeModel[]>(this.raceEventTypesUrl)
+                      .retry(3)
+                      .catch(error => this.errorHandler.handleError(error));
     }
 
 }

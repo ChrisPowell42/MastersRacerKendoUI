@@ -1,0 +1,10 @@
+<div class="row">
+  <div class="col-sm-6">
+    <div><strong>{{raceEvent.raceName}}</strong></div>
+    <div><strong>{{raceEvent.raceEventType.typeName}} {{raceEvent.raceFormat.code}}</strong> - {{raceEvent.runCount}} runs</div>
+    <div>{{raceEvent.scheduledStartTime | date:'short'}}<br/>@{{raceEvent.location.name}}</div>
+  </div>
+  <div class="col-sm-6">
+    <button kendobutton (click)="this.nextStep()">{{this.buttonText()}}</button>
+  </div>
+</div>

@@ -1,5 +1,10 @@
 <div class="RaceEventName">
-  <strong>{{raceEvent.scheduledStartTime | date:'short'}}</strong> {{raceEvent.raceFormat.code}} - {{raceEvent.runCount}}
+  <div *ngIf='this.isRace()'>
+    <strong>{{raceEvent.scheduledStartTime | date:'short'}}</strong> {{raceEvent.raceEventType.typeName}} {{raceEvent.raceFormat.code}} - {{raceEvent.runCount}}
+  </div>
+  <div *ngIf='!this.isRace()'>
+    <strong>{{raceEvent.scheduledStartTime | date:'short'}}</strong> {{raceEvent.raceEventType.typeName}} {{raceEvent.raceFormat.code}}
+  </div>
 </div>
 <div class="row">
   <div class="col-sm-6">

@@ -2,9 +2,12 @@
   Race Name: {{raceEvent.raceName}}
 </p>
 <p>
-  Format: {{raceEvent.raceFormat.name}}
+  Event Type: {{raceEvent.raceEventType.typeName}}
 </p>
 <p>
+  Format: {{raceEvent.raceFormat.name}}
+</p>
+<p *ngIf='this.isRace()'>
   Runs: {{raceEvent.runCount}}
 </p>
 <p>

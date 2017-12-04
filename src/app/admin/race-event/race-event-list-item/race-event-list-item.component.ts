@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { RaceEventModel } from '../../../types/race-event-model.type';
+import { RaceEventTypeModel } from '../../../types/raceEventType.type';
 
 import { LoggerService } from '../../../services/logger.service';
 
@@ -30,6 +31,10 @@ export class RaceEventListItemComponent {
 
     this.router.navigate(['/admin/raceevents/edit', this.raceEvent.id])
     
+  }
+
+  isRace(): boolean {
+    return this.raceEvent.raceEventType.id == RaceEventTypeModel.raceId;
   }
 
 }

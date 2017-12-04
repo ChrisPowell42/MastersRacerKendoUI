@@ -1,0 +1,22 @@
+<div class="row">
+  <div class="col-sm-3">
+    <div><h4>{{title}}</h4></div>
+    <div class="row">
+      <div class="col-sm-6">
+        <label [for]="phaseDropDown">Race State:</label>
+      </div>
+      <div class="col-sm-6">
+        <kendo-dropdownlist #phaseDropDown
+          [data]="racePhases"
+          textField="phase"
+          valueField="id"
+          (selectionChange)="selectionChanged($event)">
+        </kendo-dropdownlist>
+      </div>
+    </div>
+    <app-admin-event-list [(raceEvents)]="raceEvents"></app-admin-event-list>
+  </div>
+  <div class="col-sm-9">
+    <router-outlet></router-outlet>
+  </div>
+</div>

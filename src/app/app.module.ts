@@ -18,6 +18,7 @@ import { LocationService } from './services/location.service';
 import { SeasonService } from './services/season.service';
 import { RacerService } from './services/racer.service';
 import { RaceEventService } from './services/race-event.service';
+import { RaceResultService } from './services/race-result.service';
 import { NewsItemService } from './services/news-item.service';
 import { ConfirmationService } from './services/confirmation.service';
 import { RefDataService } from './services/refdata.service';
@@ -78,6 +79,7 @@ import { AdminbuttonComponent } from './adminbutton/adminbutton.component';
         SeasonService,
         RacerService,
         RaceEventService,
+        RaceResultService,
         NewsItemService,
         RefDataService,
         ErrorService,

@@ -35,7 +35,12 @@ export class AdminbuttonComponent  {
   {
     text: 'Race Events',
     click: () => this.router.navigate(['/admin/raceevents'])
-  }];
+  },
+  {
+    text: 'Race Results',
+    click: () => this.router.navigate(['/admin/raceresults'])
+  }
+];
 
   public onAdmin(): void {
     this.router.navigate(['/admin']);

@@ -1,0 +1,10 @@
+<div *ngIf='!this.hasEvents()'>
+  No Races
+</div>
+<kendo-panelbar *ngIf='this.hasEvents()'>
+  <kendo-panelbar-item *ngFor='let rEvent of this.raceEvents' [title]=rEvent.raceName>
+    <ng-template kendoPanelBarContent>
+      <app-admin-event-list-item [raceEvent]="rEvent"></app-admin-event-list-item>
+    </ng-template>
+  </kendo-panelbar-item>
+</kendo-panelbar>

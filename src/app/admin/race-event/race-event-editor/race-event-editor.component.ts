@@ -6,6 +6,7 @@ import { SeasonModel } from '../../../types/season-model.type';
 import { LocationModel } from '../../../types/location-model.type';
 import { RaceFormatModel } from '../../../types/raceFormat.type';
 import { RacePhaseModel } from '../../../types/racePhase.type';
+import { RaceEventTypeModel } from '../../../types/raceEventType.type';
 
 import { LoggerService } from '../../../services/logger.service';
 import { RaceEventService } from '../../../services/race-event.service';
@@ -21,8 +22,7 @@ export class RaceEventEditorComponent {
   activeSeason: SeasonModel;
   locations: LocationModel[];
   raceFormats: RaceFormatModel[];
-
-  private scheduledPhase: RacePhaseModel;
+  raceEventTypes: RaceEventTypeModel[];
 
   constructor(private route: ActivatedRoute,
               private router: Router,
@@ -35,6 +35,7 @@ export class RaceEventEditorComponent {
       this.activeSeason = val["activeSeason"];
       this.locations = val["locationsList"];
       this.raceFormats = val["raceFormats"];
+      this.raceEventTypes = val["raceEventTypes"];
 
       //this.logger.log(this.raceEvent.scheduledStartTime);
       //this.raceEvent.scheduledStartTime = new Date(this.raceEvent.scheduledStartTime.)
@@ -71,4 +72,9 @@ export class RaceEventEditorComponent {
 
   }
 
+  isRace(): boolean {
+    
+    return this.raceEvent.raceEventType == null || this.raceEvent.raceEventType.id == RaceEventTypeModel.raceId;
+  }
+  
 }

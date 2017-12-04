@@ -11,6 +11,19 @@
         </div>
         <div class="row">
           <div class="col-sm-2">
+            <label [for]="eventTypeDropDown">Event Type:</label>
+          </div>
+          <div class="col-sm-10">
+            <kendo-dropdownlist #eventTypeDropDown
+              [data]="raceEventTypes"
+              textField="typeName"
+              valueField="id"
+              [(ngModel)]="raceEvent.raceEventType">
+            </kendo-dropdownlist>
+          </div>
+        </div>        
+        <div class="row">
+          <div class="col-sm-2">
             <label [for]="locationDropDown">Location:</label>
           </div>
           <div class="col-sm-10">
@@ -38,7 +51,7 @@
             <kendo-timepicker #timeValuePicker [(value)]="raceEvent.scheduledStartTime"></kendo-timepicker>
           </div>
         </div>
-        <div class="row">
+        <div class="row" *ngIf='this.isRace()'>
           <div class="col-sm-2">
             <label [for]="runCount">Number of Runs:</label>
           </div>

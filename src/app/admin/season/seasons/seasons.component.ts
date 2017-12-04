@@ -13,7 +13,7 @@ import { LoggerService } from '../../../services/logger.service';
 export class SeasonsComponent {
 
   seasons: SeasonModel[];
-  title = 'Locations';
+  title = 'Seasons';
 
   constructor(private route: ActivatedRoute,
               private router: Router,    
@@ -30,7 +30,7 @@ export class SeasonsComponent {
 
   addNewSeason() {
 
-    //this.router.navigate(['/admin/seasons/new']);
+    this.router.navigate(['/admin/seasons/new']);
 
   }
 

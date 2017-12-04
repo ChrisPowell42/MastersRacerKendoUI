@@ -32,6 +32,7 @@ export class SeasonService {
   getActiveSeason(): Observable<SeasonModel> {
 
     return this.http.get<SeasonModel>(this.activeSeasonURL)
+                    .do(s => s.label = this.getLabel(s) )
                     .retry(3)
                     .catch(err => this.errorHandler.handleError(err));
 
@@ -40,6 +41,7 @@ export class SeasonService {
   getSeasons(): Observable<SeasonModel[]> {
 
     return this.http.get<SeasonModel[]>(this.seasonsURL)
+                    .do(sl => sl.forEach(s => s.label = this.getLabel(s)))
                     .retry(3)
                     .catch(err => this.errorHandler.handleError(err));
 
@@ -49,6 +51,7 @@ export class SeasonService {
 
     let url = `${this.seasonURL}${id}`;
     return this.http.get<SeasonModel>(url)
+                    .do(s => s.label = this.getLabel(s) )
                     .retry(3)
                     .catch(err => this.errorHandler.handleError(err));
 
@@ -68,7 +71,14 @@ export class SeasonService {
     let url = `${this.seasonURL}${changedSeason.id}`;
 
     return this.http.put<SeasonModel>(url, changedSeason)
+                    .do(s => s.label = this.getLabel(s) )
                     .catch(err => this.errorHandler.handleError(err));
+
+  }
+
+  private getLabel(season: SeasonModel): string {
+
+    return `${season.startYear} - ${season.endYear}`;
 
   }
 

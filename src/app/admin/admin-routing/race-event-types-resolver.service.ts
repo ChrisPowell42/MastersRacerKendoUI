@@ -3,25 +3,26 @@ import { Router, Resolve, RouterStateSnapshot,
          ActivatedRouteSnapshot } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 
-import { RacePhaseModel } from '../../types/racePhase.type';
+import { RaceEventTypeModel } from '../../types/raceEventType.type';
 
 import { RefDataService } from '../../services/refdata.service';
 import { ErrorService } from '../../services/error.service';
 import { LoggerService } from '../../services/logger.service';
 
 @Injectable()
-export class RacePhaseResolverService implements Resolve<RacePhaseModel[]>{
+export class RaceEventTypesResolverService implements Resolve<RaceEventTypeModel[]>{
 
   constructor (private rds: RefDataService,
     private error: ErrorService,
     private logger: LoggerService,
     private router: Router) {}
 
-  resolve( route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<RacePhaseModel[]> {
+    resolve( route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<RaceEventTypeModel[]> {
       
-    return this.rds.getRacePhases()
-                   .retry(3)
-                   .catch(err => this.error.handleError(err));    
-  }    
+          return this.rds.getRaceEventTypes()
+                         .retry(3)
+                         .catch(err => this.error.handleError(err));
+      
+        }    
 
 }

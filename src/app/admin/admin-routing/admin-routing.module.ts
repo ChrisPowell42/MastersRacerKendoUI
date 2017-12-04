@@ -19,6 +19,7 @@ import { SeasonDetailsComponent } from '../season/season-details/season-details.
 import { ActiveSeasonResolverService } from '../admin-routing/active-season-resolver.service';
 import { SeasonsResolverService } from '../admin-routing/seasons-resolver.service';
 import { SeasonResolverService } from '../admin-routing/season-resolver.service';
+import { NewSeasonResolverService } from '../admin-routing/new-season-resolver.service';
 
 import { RacersComponent } from '../racer/racers/racers.component';
 import { RacerDefaultComponent } from '../racer/racer-default/racer-default.component';
@@ -38,6 +39,10 @@ import { RaceEventsResolverService } from '../admin-routing/race-events-resolver
 import { RaceEventResolverService } from '../admin-routing/race-event-resolver.service';
 import { NewRaceEventResolverService } from '../admin-routing/new-race-event-resolver.service';
 
+import { RaceResultsComponent } from '../race-result/race-results/race-results.component';
+import { RaceResultDefaultComponent } from '../race-result/race-result-default/race-result-default.component';
+import { RaceResultRecordingComponent } from '../race-result/race-result-recording/race-result-recording.component';
+
 import { NewsItemsComponent } from '../news-items/news-items/news-items.component';
 import { NewsItemDefaultComponent } from '../news-items/news-item-default/news-item-default.component';
 import { NewsItemDetailsComponent } from '../news-items/news-item-details/news-item-details.component';
@@ -48,11 +53,13 @@ import { NewsItemResolverService } from '../admin-routing/news-item-resolver.ser
 import { NewNewsItemResolverService } from '../admin-routing/new-news-item-resolver.service';
 
 import { RaceSeriesResolverService } from '../admin-routing/race-series-resolver.service';
-import { RacePhaseResolverService } from '../admin-routing/race-phase-resolver.service';
+import { RacePhasesResolverService } from '../admin-routing/race-phases-resolver.service';
 import { RaceFormatResolverService } from '../admin-routing/race-format-resolver.service';
 import { ArticleTypesResolverService } from '../admin-routing/article-types-resolver.service';
+import { RaceEventTypesResolverService } from '../admin-routing/race-event-types-resolver.service';
 
 import { AuthGuardService } from '../../services/auth-guard.service';
+import { RaceResultReviewComponent } from '../race-result/race-result-review/race-result-review.component';
 
 const adminRoutes: Routes = [
   { path: 'admin', component: AdminComponent, canActivate: [AuthGuardService] }, 
@@ -66,7 +73,8 @@ const adminRoutes: Routes = [
   { path: 'admin/seasons', component: SeasonsComponent, canActivate: [AuthGuardService], resolve: { seasonsList: SeasonsResolverService }, 
       children: [
         { path: '', component: LocationDefaultComponent, canActivate: [AuthGuardService]},
-        { path: 'detail/:id', component: SeasonDetailsComponent, canActivate: [AuthGuardService], resolve: { season: SeasonResolverService }}
+        { path: 'detail/:id', component: SeasonDetailsComponent, canActivate: [AuthGuardService], resolve: { season: SeasonResolverService }},
+        { path: 'new', component: SeasonDetailsComponent, canActivate: [AuthGuardService], resolve: { season: NewSeasonResolverService }}
       ]},
   { path: 'admin/racers', component: RacersComponent, canActivate: [AuthGuardService], resolve: { racersList: RacersResolverService },
       children: [
@@ -88,12 +96,22 @@ const adminRoutes: Routes = [
         { path: 'new', component: RaceEventEditorComponent, canActivate: [AuthGuardService], resolve: { raceEvent: NewRaceEventResolverService,
                                                                                                         activeSeason: ActiveSeasonResolverService, 
                                                                                                         raceFormats: RaceFormatResolverService,
-                                                                                                        locationsList: LocationsResolverService}},
+                                                                                                        locationsList: LocationsResolverService,
+                                                                                                        raceEventTypes: RaceEventTypesResolverService}},
         { path: 'detail/:id', component: RaceEventDetailsComponent, canActivate: [AuthGuardService], resolve: {raceEvent: RaceEventResolverService}},
         { path: 'edit/:id', component: RaceEventEditorComponent, canActivate: [AuthGuardService], resolve: { raceEvent: RaceEventResolverService,
                                                                                                              activeSeason: ActiveSeasonResolverService, 
                                                                                                              raceFormats: RaceFormatResolverService,
-                                                                                                             locationsList: LocationsResolverService}}
+                                                                                                             locationsList: LocationsResolverService,
+                                                                                                             raceEventTypes: RaceEventTypesResolverService}}
+      ]},
+  { path: 'admin/raceresults', component: RaceResultsComponent, canActivate: [AuthGuardService], resolve: { racePhases: RacePhasesResolverService,
+                                                                                                            raceEventsList: RaceEventsResolverService,
+                                                                                                            activeSeason: ActiveSeasonResolverService},
+      children: [
+        {path: '', component: RaceResultDefaultComponent, canActivate: [AuthGuardService]},
+        {path: 'record/:id', component: RaceResultRecordingComponent, canActivate: [AuthGuardService]},
+        {path: 'review/:id', component: RaceResultReviewComponent, canActivate:[AuthGuardService]}
       ]}
 ];
 
