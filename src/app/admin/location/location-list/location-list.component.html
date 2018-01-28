@@ -1,8 +1,4 @@
 <div *ngIf='!locations'>No Locations</div>
-<kendo-panelbar *ngIf='locations'>
-  <kendo-panelbar-item *ngFor='let location of locations' [title]=location.name>
-    <ng-template kendoPanelBarContent>
-      <app-location-list-item [location]=location></app-location-list-item>
-    </ng-template>
-  </kendo-panelbar-item>
-</kendo-panelbar>
+<div *ngIf='locations'>
+  <app-location-list-item *ngFor='let location of locations' [location]=location></app-location-list-item>
+</div>

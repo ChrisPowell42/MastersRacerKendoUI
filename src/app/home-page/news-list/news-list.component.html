@@ -1,12 +1,14 @@
-<strong>Latest Masters News</strong>
+<mat-toolbar class="news-bar">
+  Latest Masters News
+</mat-toolbar>  
 <div *ngIf='!newsItems'>No News</div>
-<kendo-panelbar *ngIf='newsItems'>
-  <kendo-panelbar-item *ngFor='let item of newsItems' [title]='item.title'>
-    <ng-template kendoPanelBarContent>
+<div *ngIf='newsItems'>
+  <mat-accordion>
+    <mat-expansion-panel *ngFor='let item of newsItems' [title]='item.title'>
+      <mat-expansion-panel-header>
+        <mat-panel-title>{{item.title}}</mat-panel-title>
+      </mat-expansion-panel-header>
       <app-news-list-item [newsItem]='item'></app-news-list-item>
-    </ng-template>
-  </kendo-panelbar-item>
-</kendo-panelbar>
-<!-- <div *ngIf='newsItems'>
-  <div *ngFor='let item of newsItems'
-</div> -->
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>

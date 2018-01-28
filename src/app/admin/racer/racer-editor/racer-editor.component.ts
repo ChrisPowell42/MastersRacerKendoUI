@@ -14,6 +14,7 @@ import { RacerService } from '../../../services/racer.service';
 export class RacerEditorComponent  {
 
   racer: RacerModel;
+  raceSeriesId: string;
   raceSeries: RaceSeriesModel[];
 
     constructor(private route: ActivatedRoute,
@@ -23,6 +24,7 @@ export class RacerEditorComponent  {
 
       this.route.data.subscribe(val => {
         this.racer = val["racer"];
+        this.raceSeriesId = this.racer.raceSeries.id;
         this.raceSeries = val["raceSeries"];
 
         this.logger.log(this.raceSeries);
@@ -44,6 +46,7 @@ export class RacerEditorComponent  {
 
     if (this.racer.id == null)
     {
+      this.racer.raceSeries = this.raceSeries.find(x=>x.id == this.raceSeriesId);
       this.logger.log("Pre-AddRacer");
       this.racerService.addRacer(this.racer).subscribe(
         res => {
@@ -53,6 +56,7 @@ export class RacerEditorComponent  {
 
     }
     else {
+      this.racer.raceSeries = this.raceSeries.find(x=>x.id == this.raceSeriesId);
       this.logger.log("Pre-SaveRacer");
       this.racerService.saveRacer(this.racer).subscribe(
         res => {

@@ -1,14 +1,15 @@
-<div class="row">
-  <div class="col-sm-3">
-    <div class="panelbar-wrapper">
-      <div class="row">
-        <div class="col-sm-9"><h4>{{title}}</h4> {{activeSeason.label}}</div>
-        <div class="col-sm-3"><button kendoButton (click)="addNewRaceEvent()">Add Race</button></div>
-      </div>  
-      <app-race-event-list [raceEvents]=raceEvents></app-race-event-list>
-    </div>    
-  </div>
-  <div class="col-sm-9">
+<mat-sidenav-container style="height: 100%;">
+  <mat-sidenav opened="true" mode="side" disableClose="true">
+    <mat-toolbar>
+      <mat-toolbar-row>
+        <div class="title">{{title}}&nbsp;{{activeSeason.label}}</div>
+        <div class="spacer">&nbsp;</div>
+        <button class="add-button" mat-raised-button color="primary" (click)="addNewRaceEvent()">Add Race</button>
+      </mat-toolbar-row>
+    </mat-toolbar>
+    <app-race-event-list [raceEvents]=raceEvents></app-race-event-list>
+  </mat-sidenav>
+  <section>
     <router-outlet></router-outlet>
-  </div>
-</div>
+  </section>
+</mat-sidenav-container>

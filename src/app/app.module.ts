@@ -28,17 +28,16 @@ import { LoggerService } from './services/logger.service';
 import { FrontPageNewsResolverService } from './app-routing/front-page-news-resolver.service';
 import { NextRaceEventsResolverService } from './app-routing/next-race-events-resolver.service';
 
-// Import the Kendo Modules
-import { ButtonsModule } from '@progress/kendo-angular-buttons';
-import { InputsModule } from '@progress/kendo-angular-inputs';
-import { LabelModule } from '@progress/kendo-angular-label';
-import { LayoutModule } from '@progress/kendo-angular-layout';
-import { DialogModule } from '@progress/kendo-angular-dialog';
-import { DropDownListModule } from '@progress/kendo-angular-dropdowns';
-import { DateInputsModule } from '@progress/kendo-angular-dateinputs';
-
-// Bootstrap modules
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { MatButtonModule, 
+         MatCheckboxModule, 
+         MatCardModule, 
+         MatInputModule, 
+         MatSelectModule,
+         MatToolbarModule,
+         MatMenuModule,
+         MatIconModule,
+         MatNativeDateModule,
+         MatSnackBarModule } from '@angular/material'
 
 //Components
 import { AppComponent } from './app.component';
@@ -62,16 +61,19 @@ import { AdminbuttonComponent } from './adminbutton/adminbutton.component';
         AdminModule,
         HomePageModule,
         AppRoutingModule,
-        NgbModule.forRoot(),
 
         // Register the modules
         BrowserAnimationsModule,
-        ButtonsModule,
-        InputsModule,
-        LabelModule,
-        LayoutModule,
-        DialogModule,
-        DateInputsModule
+        MatButtonModule, 
+        MatCheckboxModule,
+        MatCardModule,
+        MatInputModule,
+        MatSelectModule,
+        MatToolbarModule,
+        MatMenuModule,
+        MatIconModule,
+        MatNativeDateModule,
+        MatSnackBarModule
     ],
     providers: [
         AuthService,

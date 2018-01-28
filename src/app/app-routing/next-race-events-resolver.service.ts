@@ -19,7 +19,7 @@ export class NextRaceEventsResolverService implements Resolve<RaceEventModel[]> 
 
   resolve( route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<RaceEventModel[]> {
                 
-    return this.res.getNextRaceEvents(2).map(races => {
+    return this.res.getNextRaceEvents(3).map(races => {
       //this.logger.log(races);
       if (races)
         return races;

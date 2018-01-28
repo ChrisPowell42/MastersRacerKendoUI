@@ -22,7 +22,7 @@ export class SeasonResolverService {
     let id = route.paramMap.get('id');
     this.logger.log(id);
 
-    return this.ss.getSeason(id).take(1).map( season => {
+    return this.ss.getSeason(id).map( season => {
       if (season) {
         //this.logger.log('SeasonResolver found season.');
         //this.logger.log(location);

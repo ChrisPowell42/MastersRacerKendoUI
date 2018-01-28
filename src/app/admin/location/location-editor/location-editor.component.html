@@ -1,39 +1,19 @@
-<div class="panel panel-default">
-  <div class="panel-heading">Location Editor</div>
-  <div class="panel-body">
-    <div class="row">
-      <div class="col-sm-2">
-        <label [for]="locname">Name:</label>
-      </div>
-      <div class="col-sm=10">
-        <input #locname [(ngModel)]="location.name">
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-sm-2">
-        <label [for]="description">Description:</label>
-      </div>
-      <div class="col-sm=10">
-        <textarea class="form-control" #description [(ngModel)]="location.description"></textarea>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-sm-6">
-        <label [for]="posLat">Latitude:</label>
-        <input type="numeric" #posLat [(ngModel)]="location.latPos"/>
-      </div>
-      <div class="col-sm-6">
-        <label [for]="posLong">Longitude:</label>
-        <input type="numeric" #posLong [(ngModel)]="location.longPos"/>
-      </div>  
-    </div>
-    <div class="row">
-      <div class="col-sm-2">
-        <button kendoButton (click)="saveChanges()">Save</button>
-      </div>
-      <div class="col-sm-2">
-        <button kendoButton (click)="cancelChanges()">Cancel</button>
-      </div>
-    </div>
+<mat-toolbar>Location Editor</mat-toolbar>
+<div class="flex-container">
+  <mat-form-field>
+    <input matInput placeholder="Name" [(ngModel)]="location.name">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Description" [(ngModel)]="location.description">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Latitude" type="numeric" [(ngModel)]="location.latPos"/>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Longitude" type="numeric" [(ngModel)]="location.longPos"/>
+  </mat-form-field>
+  <div class="buttonBox">
+    <button mat-raised-button color="primary" (click)="saveChanges()">Save</button>
+    <button mat-raised-button color="primary" (click)="cancelChanges()">Cancel</button>
   </div>
 </div>

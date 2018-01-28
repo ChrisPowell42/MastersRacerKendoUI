@@ -1,7 +1,12 @@
-<h3>
-  {{season.label}}
-</h3>
-<div>
-  <span *ngIf='season.isCurrentSeason'>Active Season</span>
-  <p>{{season.notes}}</p>
-</div>
+<mat-toolbar>Details</mat-toolbar>
+<mat-card>
+  <mat-card-title>
+    {{season.label}}
+  </mat-card-title>
+  <mat-card-content>
+    {{season.notes}}
+  </mat-card-content>
+  <mat-card-footer *ngIf="season.isCurrentSeason">
+    Active Season
+  </mat-card-footer>
+</mat-card>

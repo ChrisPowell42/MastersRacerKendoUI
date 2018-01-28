@@ -5,6 +5,6 @@
     <div>{{raceEvent.scheduledStartTime | date:'short'}}<br/>@{{raceEvent.location.name}}</div>
   </div>
   <div class="col-sm-6">
-    <button kendobutton (click)="this.nextStep()">{{this.buttonText()}}</button>
+    <button mat-button (click)="this.nextStep()">{{this.buttonText()}}</button>
   </div>
 </div>

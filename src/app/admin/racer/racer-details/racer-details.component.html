@@ -1,4 +1,13 @@
-<h3>{{racer.name}} {{racer.bibNumber}}</h3>
-<p>{{racer.raceSeries.name}} {{racer.raceSeries.gender}}</p>
-<p *ngIf='racer.active'>Active</p>
-<p *ngIf='!racer.active'>Not currently active</p>
+<mat-toolbar>Details</mat-toolbar>
+<mat-card>
+    <mat-card-title>
+        {{racer.name}} {{racer.bibNumber}}
+    </mat-card-title>
+    <mat-card-subtitle>
+        <p *ngIf='racer.active'>Active</p>
+        <p *ngIf='!racer.active'>Not currently active</p>        
+    </mat-card-subtitle>
+    <mat-card-content>
+        {{racer.raceSeries.name}} {{racer.raceSeries.gender}}
+    </mat-card-content>
+</mat-card>

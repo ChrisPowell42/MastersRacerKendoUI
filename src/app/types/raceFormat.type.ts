@@ -1,5 +1,5 @@
 export class RaceFormatModel {
-    Id: string;
+    id: string;
     name: string;
     code: string;
 }

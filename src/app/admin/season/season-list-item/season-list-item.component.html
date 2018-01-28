@@ -1,10 +1,13 @@
-
-<div class="row">
-  <div class="col-sm-6">
-    <button kendoButton (click)="onSelectDetails()">Details</button>
-  </div>
-  <div class="col-sm-6">
-    <button *ngIf='!season.isCurrentSeason' kendoButton (click)="onMakeActive()">Make Active</button>
-    <div *ngIf='season.isCurrentSeason'>Active</div>
-  </div>
-</div>
+<mat-card>
+  <mat-card-title>
+    {{season.label}}
+  </mat-card-title>
+  <mat-card-content>
+    {{season.notes}}
+    <span *ngIf='season.isCurrentSeason'>Active Season</span> 
+  </mat-card-content>
+  <mat-card-actions align="end">
+    <button mat-raised-button (click)="onSelectDetails()">Details</button>
+    <button *ngIf='!season.isCurrentSeason' mat-raised-button (click)="onMakeActive()">Make Active</button>
+  </mat-card-actions>
+</mat-card>

@@ -1,0 +1,24 @@
+mat-toolbar {
+    background-color: goldenrod;
+}
+
+.flex-container {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+textarea {
+    height: 5em;
+}
+
+.button-box {
+    text-align: right;
+}
+
+.byline {
+    text-align: right;
+    margin-top: 10px;
+}

@@ -22,7 +22,7 @@ export class LocationResolverService {
     let id = route.paramMap.get('id');
     this.logger.log(id);
 
-    return this.ls.getLocation(id).take(1).map( location => {
+    return this.ls.getLocation(id).map( location => {
       if (location) {
         this.logger.log('LocationResolver found location.');
         this.logger.log(location);

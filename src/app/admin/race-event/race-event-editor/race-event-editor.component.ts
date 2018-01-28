@@ -21,8 +21,11 @@ export class RaceEventEditorComponent {
   raceEvent: RaceEventModel;
   activeSeason: SeasonModel;
   locations: LocationModel[];
+  locationId: string;
   raceFormats: RaceFormatModel[];
+  raceFormatId: string;
   raceEventTypes: RaceEventTypeModel[];
+  raceEventTypeId: string;
 
   constructor(private route: ActivatedRoute,
               private router: Router,
@@ -31,13 +34,20 @@ export class RaceEventEditorComponent {
               private logger: LoggerService) {
 
     this.route.data.subscribe(val => {
+
       this.raceEvent = val["raceEvent"];
+      //this.logger.log(this.raceEvent);
+
+      this.raceEventTypeId = this.raceEvent.raceEventType.id;
+      this.raceFormatId = this.raceEvent.raceFormat.id;
+      this.locationId = this.raceEvent.location.id;
+
       this.activeSeason = val["activeSeason"];
       this.locations = val["locationsList"];
       this.raceFormats = val["raceFormats"];
       this.raceEventTypes = val["raceEventTypes"];
 
-      //this.logger.log(this.raceEvent.scheduledStartTime);
+      this.logger.log(this.raceEvent.scheduledStartTime);
       //this.raceEvent.scheduledStartTime = new Date(this.raceEvent.scheduledStartTime.)
     });
 

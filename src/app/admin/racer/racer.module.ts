@@ -3,14 +3,14 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-
-// Import the Kendo Modules
-import { ButtonsModule } from '@progress/kendo-angular-buttons';
-import { InputsModule } from '@progress/kendo-angular-inputs';
-import { LabelModule } from '@progress/kendo-angular-label';
-import { LayoutModule } from '@progress/kendo-angular-layout';
-import { DropDownListModule } from '@progress/kendo-angular-dropdowns';
+import { MatCardModule, 
+         MatInputModule, 
+         MatSelectModule, 
+         MatCheckboxModule, 
+         MatToolbarModule,
+         MatGridListModule,
+         MatButtonModule,
+         MatSidenavModule } from '@angular/material';
 
 import { RacersComponent } from './racers/racers.component';
 import { RacerListComponent } from './racer-list/racer-list.component';
@@ -23,13 +23,15 @@ import { RacerEditorComponent } from './racer-editor/racer-editor.component';
   imports: [
     CommonModule,
     RouterModule,
-    NgbModule,
-    ButtonsModule,
     FormsModule,
-    InputsModule,
-    LabelModule,
-    LayoutModule,    
-    DropDownListModule
+    MatCardModule,
+    MatInputModule,
+    MatSelectModule,
+    MatCheckboxModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    MatButtonModule,
+    MatGridListModule
   ],
   declarations: [
     RacersComponent, 

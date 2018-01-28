@@ -1,16 +1,15 @@
-<div class="RaceEventName">
-  <div *ngIf='this.isRace()'>
-    <strong>{{raceEvent.scheduledStartTime | date:'short'}}</strong> {{raceEvent.raceEventType.typeName}} {{raceEvent.raceFormat.code}} - {{raceEvent.runCount}}
-  </div>
-  <div *ngIf='!this.isRace()'>
-    <strong>{{raceEvent.scheduledStartTime | date:'short'}}</strong> {{raceEvent.raceEventType.typeName}} {{raceEvent.raceFormat.code}}
-  </div>
-</div>
-<div class="row">
-  <div class="col-sm-6">
-    <button kendoButton (click)="onSelectDetails()">Details</button>
-  </div>
-  <div class="col-sm-6">
-    <button kendoButton (click)="onSelectEdit()">Edit</button>
-  </div>
-</div>
+<mat-card>
+  <mat-card-title>{{raceEvent.raceName}}</mat-card-title>
+  <mat-card-content>
+    <div *ngIf='this.isRace()'>
+      <strong>{{raceEvent.scheduledStartTime | date:'short'}}</strong> {{raceEvent.raceEventType.typeName}} {{raceEvent.raceFormat.code}} - {{raceEvent.runCount}}
+    </div>
+    <div *ngIf='!this.isRace()'>
+      <strong>{{raceEvent.scheduledStartTime | date:'short'}}</strong> {{raceEvent.raceEventType.typeName}} {{raceEvent.raceFormat.code}}
+    </div>  
+  </mat-card-content>
+  <mat-card-actions align="end">
+    <button mat-raised-button (click)="onSelectDetails()">Details</button>
+    <button mat-raised-button (click)="onSelectEdit()">Edit</button>
+  </mat-card-actions>
+</mat-card>

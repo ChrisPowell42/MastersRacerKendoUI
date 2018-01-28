@@ -1,5 +1,10 @@
-<div>
-  <kendo-splitbutton (buttonClick)="onAdmin()" [data]="data">
-      Admin
-  </kendo-splitbutton>
-</div>
+<mat-menu #adminMenu="matMenu">
+    <button mat-menu-item (click)="this.onAdmin()">Admin</button>        
+    <button mat-menu-item (click)="this.onNewsItems()">News Items</button>
+    <button mat-menu-item (click)="this.onLocations()">Locations</button>    
+    <button mat-menu-item (click)="this.onSeasons()">Seasons</button>
+    <button mat-menu-item (click)="this.onRacers()">Racers</button>
+    <button mat-menu-item (click)="this.onRaceEvents()">Events</button>
+    <button mat-menu-item (click)="this.onRaceResults()">Race Results</button>
+</mat-menu>
+<button mat-icon-button [matMenuTriggerFor]="adminMenu"><mat-icon>settings</mat-icon></button>

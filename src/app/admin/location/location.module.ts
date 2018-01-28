@@ -4,13 +4,12 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-
-// Import the Kendo Modules
-import { ButtonsModule } from '@progress/kendo-angular-buttons';
-import { InputsModule } from '@progress/kendo-angular-inputs';
-import { LabelModule } from '@progress/kendo-angular-label';
-import { LayoutModule } from '@progress/kendo-angular-layout';
+import { MatCardModule, 
+         MatToolbarModule, 
+         MatInputModule, 
+         MatSelectModule,
+         MatButtonModule, 
+         MatSidenavModule } from '@angular/material';
 
 // Components
 import { LocationsComponent } from './locations/locations.component';
@@ -23,13 +22,14 @@ import { LocationListComponent } from './location-list/location-list.component';
 @NgModule({
   imports: [
     CommonModule,
-    LayoutModule,
     RouterModule,
-    NgbModule,
-    ButtonsModule,
     FormsModule,
-    InputsModule,
-    LabelModule
+    MatCardModule,
+    MatToolbarModule,
+    MatInputModule,
+    MatSelectModule,
+    MatButtonModule,
+    MatSidenavModule
   ],
   declarations: [
     LocationsComponent, 

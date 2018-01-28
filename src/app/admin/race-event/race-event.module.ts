@@ -3,15 +3,14 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-
-// Import the Kendo Modules
-import { ButtonsModule } from '@progress/kendo-angular-buttons';
-import { InputsModule } from '@progress/kendo-angular-inputs';
-import { LabelModule } from '@progress/kendo-angular-label';
-import { LayoutModule } from '@progress/kendo-angular-layout';
-import { DropDownListModule } from '@progress/kendo-angular-dropdowns';
-import { DateInputsModule } from '@progress/kendo-angular-dateinputs';
+import { MatCardModule, 
+         MatToolbarModule, 
+         MatInputModule, 
+         MatSelectModule,
+         MatListModule,
+         MatSidenavModule,
+         MatButtonModule,
+         MatDatepickerModule } from '@angular/material';
 
 import { RaceEventsComponent } from './race-events/race-events.component';
 import { RaceEventListComponent } from './race-event-list/race-event-list.component';
@@ -24,14 +23,15 @@ import { RaceEventDetailsComponent } from './race-event-details/race-event-detai
   imports: [
     CommonModule,
     RouterModule,
-    NgbModule,
-    ButtonsModule,
     FormsModule,
-    InputsModule,
-    LabelModule,
-    LayoutModule,    
-    DropDownListModule,
-    DateInputsModule
+    MatCardModule,
+    MatToolbarModule,
+    MatInputModule,
+    MatSelectModule,
+    MatListModule,
+    MatSidenavModule,
+    MatButtonModule,
+    MatDatepickerModule
     ],
   declarations: [
     RaceEventsComponent, 

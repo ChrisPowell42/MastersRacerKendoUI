@@ -13,36 +13,33 @@ export class AdminbuttonComponent  {
     private route: ActivatedRoute,
     private router: Router,
     private logger: LoggerService
-) {}
+  ) {}
 
-  public data: Array<any> = [
-  {
-    text: 'News Items',
-    click: () => this.router.navigate(['/admin/newsitems'])
-  },
-  {
-    text: 'Locations',
-    click: () => this.router.navigate(['/admin/locations'])
-  },
-  {
-    text: 'Seasons',
-    click: () => this.router.navigate(['/admin/seasons'])
-  },
-  {
-    text: 'Racers',
-    click: () => this.router.navigate(['/admin/racers'])
-  },
-  {
-    text: 'Race Events',
-    click: () => this.router.navigate(['/admin/raceevents'])
-  },
-  {
-    text: 'Race Results',
-    click: () => this.router.navigate(['/admin/raceresults'])
+  onNewsItems(): void {
+    this.router.navigate(['/admin/newsitems']);
   }
-];
 
-  public onAdmin(): void {
+  onLocations(): void {
+    this.router.navigate(['/admin/locations']);
+  }
+
+  onSeasons(): void {
+    this.router.navigate(['/admin/seasons']);
+  }
+
+  onRacers(): void {
+    this.router.navigate(['/admin/racers']);
+  }
+
+  onRaceEvents(): void {
+    this.router.navigate(['/admin/raceevents']);
+  }
+
+  onRaceResults(): void {
+    this.router.navigate(['/admin/raceresults']);
+  }
+  
+  onAdmin(): void {
     this.router.navigate(['/admin']);
     this.logger.log('Admin Page');
   }

@@ -1,90 +1,47 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Inject, Component } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-import { DialogService, DialogRef, DialogCloseResult, DialogAction, DialogResult } from '@progress/kendo-angular-dialog';
+
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 
 import { LoggerService } from './logger.service';
 
 @Injectable()
 export class ConfirmationService {
 
-  private readonly okStr: string = 'Ok';
-  private readonly cancelStr: string = 'Cancel';
-
-  private readonly okAction: DialogAction;
-  private readonly cancelAction: DialogAction;
-
   constructor(private logger: LoggerService,
-              private dialogService: DialogService) { 
+              private dialog: MatDialog) { 
 
-    this.okAction = new DialogAction();
-    this.okAction.text = this.okStr;
-
-    this.cancelAction = new DialogAction();
-    this.cancelAction.text = this.cancelStr;
   }
 
-  okCancel(message: string): Observable<boolean> {
+  okCancel(dialogMessage: string): Observable<boolean> {
   
-    let options:DialogAction[] = [this.okAction, this.cancelAction];
-
-    return this.display(message, options).map(result => {
-
-      if (result instanceof DialogCloseResult) {
-        return false;
-      }
-      
-      let actionResult: DialogAction = <DialogAction>result;
-      
-      if (actionResult == this.okAction)
-        return true;
-
-      return false;
-
+    let dialogRef = this.dialog.open(OkayCancelDialogComponent, {
+      data: { message: dialogMessage }
     });
 
+    return dialogRef.afterClosed();
   }
 
-  okay(message: string): Observable<boolean> {
+}
 
-    let options:DialogAction[] = [this.okAction];
+@Component({
+  template: "<h1 mat-dialog-title>Confirm</h1>\
+             <div mat-dialog-content>{{data.message}}</div>\
+             <div mat-dialog-actions>\
+               <button mat-button (click)=\"onOkay()\" cdkFocusInitial>Okay</button>\
+               <button mat-button (click)=\"onCancel()\">Cancel</button>\
+             </div>"
+})
+export class OkayCancelDialogComponent {
 
-    return this.display(message, options).map(result => {
+  constructor(public dialogRef: MatDialogRef<OkayCancelDialogComponent>,
+              @Inject(MAT_DIALOG_DATA) public data:any) {}
 
-      if (result instanceof DialogCloseResult) {
-        return false;
-      }
-
-      let actionResult:DialogAction = <DialogAction>result;
-
-      if (actionResult == this.okAction)
-        return true;
-      
-      return false;
-      
-    });
+  onCancel(): void {
+    this.dialogRef.close(false);
   }
 
-  private display(message: string, options:DialogAction[] ): Observable<DialogCloseResult | DialogAction> {
-    
-    const dialog: DialogRef = this.dialogService.open({
-                                        title: 'Confirm',
-                                        content: message,
-                                        actions: options
-                                    });
-
-    return dialog.result;
-
-    // .map(result => {
-    //   if (result instanceof DialogCloseResult) {
-    //     return false;
-    //   }
-    //   else {
-    //     this.logger.log(result);
-    //     return true;
-    //   }
-    // });
-                                    
-
-  }  
-
+  onOkay(): void {
+    this.dialogRef.close(true);
+  }
 }

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
-import { DialogService } from '@progress/kendo-angular-dialog';
+import { MatSnackBar } from '@angular/material';
 
 import { LoggerService } from './logger.service';
 
@@ -11,7 +11,7 @@ import 'rxjs/add/observable/throw';
 export class ErrorService {
 
     constructor(private logger: LoggerService,
-                private dialogService: DialogService) { }
+                private snackBar: MatSnackBar) { }
 
     handleError(error: Response | any) {
 
@@ -33,11 +33,8 @@ export class ErrorService {
 
     displayError(error: string ) {
 
-        this.dialogService.open({
-            title: 'Error',
-            content: error,
-            actions: [{ text: "Ok" }]});
-
+        this.snackBar.open(error, 'Ok', {duration: 5000});
+        
     }
 
 }

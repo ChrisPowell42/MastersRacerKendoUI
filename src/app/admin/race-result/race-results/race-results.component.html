@@ -1,22 +1,14 @@
-<div class="row">
-  <div class="col-sm-3">
-    <div><h4>{{title}}</h4></div>
-    <div class="row">
-      <div class="col-sm-6">
-        <label [for]="phaseDropDown">Race State:</label>
-      </div>
-      <div class="col-sm-6">
-        <kendo-dropdownlist #phaseDropDown
-          [data]="racePhases"
-          textField="phase"
-          valueField="id"
-          (selectionChange)="selectionChanged($event)">
-        </kendo-dropdownlist>
-      </div>
-    </div>
-    <app-admin-event-list [(raceEvents)]="raceEvents"></app-admin-event-list>
-  </div>
-  <div class="col-sm-9">
+<mat-sidenav-container style="height: 100%;">
+  <mat-sidenav opened="true" mode="side" disableClose="true">
+    <mat-toolbar class="news-title">{{title}}</mat-toolbar>
+    <mat-select class="race-selector" placeholder="Race State">
+      <mat-option *ngFor="let phase of racePhases" [value]="id" (selectionChange)="selectionChanged($event)">
+        {{phase.phase}}
+      </mat-option>
+    </mat-select>  
+     <app-admin-event-list [(raceEvents)]="raceEvents"></app-admin-event-list>  
+  </mat-sidenav>
+  <section>
     <router-outlet></router-outlet>
-  </div>
-</div>
+  </section>  
+</mat-sidenav-container>

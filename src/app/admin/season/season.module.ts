@@ -4,13 +4,10 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-
-// Import the Kendo Modules
-import { ButtonsModule } from '@progress/kendo-angular-buttons';
-import { InputsModule } from '@progress/kendo-angular-inputs';
-import { LabelModule } from '@progress/kendo-angular-label';
-import { LayoutModule } from '@progress/kendo-angular-layout';
+import { MatCardModule, 
+         MatSidenavModule,
+         MatButtonModule,
+         MatToolbarModule } from '@angular/material';
 
 import { SeasonsComponent } from './seasons/seasons.component';
 import { SeasonListComponent } from './season-list/season-list.component';
@@ -21,13 +18,12 @@ import { SeasonDetailsComponent } from './season-details/season-details.componen
 @NgModule({
   imports: [
     CommonModule,
-    LayoutModule,
     RouterModule,
-    NgbModule,
-    ButtonsModule,
     FormsModule,
-    InputsModule,
-    LabelModule
+    MatCardModule,
+    MatSidenavModule,
+    MatButtonModule,
+    MatToolbarModule
   ],
   declarations: [
     SeasonsComponent, 

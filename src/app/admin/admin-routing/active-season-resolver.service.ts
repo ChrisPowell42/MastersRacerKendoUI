@@ -19,7 +19,7 @@ export class ActiveSeasonResolverService {
 
   resolve( route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<SeasonModel> {
 
-    return this.ss.getActiveSeason().take(1).map( season => {
+    return this.ss.getActiveSeason().map( season => {
       if (season) {
         //this.logger.log('SeasonResolver found active season.');
         //this.logger.log(season);

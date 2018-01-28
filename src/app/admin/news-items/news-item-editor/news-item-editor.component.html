@@ -1,52 +1,22 @@
-<div class="panel panel-default">
-  <div class="panel-heading">Article Editor</div>
-  <div class="panel-body">
-    <div class="row">
-      <div class="col-sm-2">
-        <label [for]='articleType'>Article Type:</label>
-      </div>
-      <div class="col-sm-10">
-        <kendo-dropdownlist #articleType
-          [data]="articleTypes"
-          textField="typeName"
-          valueField="id"
-          [(ngModel)]="newsItem.articleType">
-        </kendo-dropdownlist>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-sm-2">
-        <label [for]="title">Title:</label>
-      </div>
-      <div class="col-sm-10">
-        <input kendoTextBox #title [(ngModel)]="newsItem.title">
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-sm-2">
-        <label [for]="article">Article:</label>
-      </div>
-      <div class="col-sm-10">          
-        <textarea class="form-control" #article [(ngModel)]="newsItem.articleText"></textarea>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-sm-12">&nbsp;<!--spacer--></div>
-    </div>
-    <div class="row">
-      <div class="col-sm-2"><!--spacer--></div>
-      <div class="col-sm-1">
-        <button kendoButton (click)="onSaveChanges()">Save</button>
-      </div>
-      <div class="col-sm-1">
-        <button kendoButton (click)="onDelete()">Delete</button>
-      </div>
-      <div class="col-sm-1">
-        <button kendoButton (click)="onCancel()">Cancel</button>
-      </div>
-      <div class="col-sm-6">
-          <p>Originally posted on {{newsItem.postedOn | date:'shortDate'}} by {{newsItem.postedBy}}</p>
-      </div>  
-    </div>
+<mat-toolbar>Article Editor</mat-toolbar>
+<div class="flex-container">
+  <mat-form-field>
+    <mat-select placeholder="Article Type" [(value)]="articleTypeId" >
+      <mat-option #articleType *ngFor="let artType of articleTypes" [(value)]="artType.id">
+        {{artType.typeName}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput #title placeholder="Title" [(ngModel)]="newsItem.title">
+  </mat-form-field>
+  <mat-form-field>
+    <textarea matInput #articleBody placeholder="Article" [(ngModel)]="newsItem.articleText"></textarea>
+  </mat-form-field>
+  <div class="button-box">
+    <button mat-raised-button color="primary" (click)="onSaveChanges()">Save</button>
+    <button mat-raised-button color="primary" (click)="onDelete()">Delete</button>
+    <button mat-raised-button color="primary" (click)="onCancel()">Cancel</button>  
   </div>
+  <div class="byline">Originally posted on {{newsItem.postedOn | date:'shortDate'}} by {{newsItem.postedBy}}</div>
 </div>

@@ -72,7 +72,7 @@ const adminRoutes: Routes = [
       ]},
   { path: 'admin/seasons', component: SeasonsComponent, canActivate: [AuthGuardService], resolve: { seasonsList: SeasonsResolverService }, 
       children: [
-        { path: '', component: LocationDefaultComponent, canActivate: [AuthGuardService]},
+        { path: '', component: SeasonDefaultComponent, canActivate: [AuthGuardService]},
         { path: 'detail/:id', component: SeasonDetailsComponent, canActivate: [AuthGuardService], resolve: { season: SeasonResolverService }},
         { path: 'new', component: SeasonDetailsComponent, canActivate: [AuthGuardService], resolve: { season: NewSeasonResolverService }}
       ]},

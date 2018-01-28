@@ -1,19 +1,19 @@
-<nav class="navbar navbar-inverse">
-    <div class="container-fluid">
-        <div class="navbar-header row">
-            <div class="col-sm-2">
-                <a routerLink="/home"><img src='assets/images/MastersShield_icon.png'></a>
-            </div>
-            <div class="col-sm-10">
-                <h2>{{title}}</h2>
-            </div>
+<mat-toolbar color="primary">
+    <mat-toolbar-row class="flex-container">
+        <div class="icon-div">
+            <a routerLink="/home"><img src='assets/images/MastersShield_icon.png'></a>
         </div>
-        <ul class="nav navbar-nav">
-            <li *ngIf="!auth.isAuthenticated()"><button kendoButton (click)="auth.login()">Log in</button></li>
-            <li *ngIf="auth.isAuthenticated()"><button kendoButton (click)="auth.logout()">Log out</button></li>
-            <li *ngIf="auth.isAuthenticated()"><app-adminbutton></app-adminbutton></li>
-        </ul>
-     </div>
-</nav>
-<router-outlet></router-outlet>
-<div kendoDialogContainer></div>
+        <div class="title-div">
+            <h2>{{title}}</h2>
+        </div>
+        <div class="spacer">&nbsp;</div>
+        <div class="button-div">
+            <button mat-button *ngIf="!auth.isAuthenticated()" (click)="auth.login()">Log in</button>
+            <button mat-button *ngIf="auth.isAuthenticated()"(click)="auth.logout()">Log out</button>
+            <app-adminbutton *ngIf="auth.isAuthenticated()"></app-adminbutton>        
+        </div>
+    </mat-toolbar-row>
+</mat-toolbar>
+<div class="main-container">
+    <router-outlet></router-outlet>
+</div>

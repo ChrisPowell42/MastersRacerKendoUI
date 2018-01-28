@@ -1,4 +1,14 @@
-<div><strong>{{event.raceName}}</strong></div>
-<div><strong>{{event.raceEventType.typeName}} {{event.raceFormat.code}}</strong></div>
-<div>{{event.scheduledStartTime | date:'short'}}<br/>@{{event.location.name}}</div>
-<hr/>
+<mat-card>
+    <mat-card-title>
+        <div class="eventTitle">{{event.raceName}}</div>
+    </mat-card-title>
+    <mat-card-subtitle>
+        {{event.raceEventType.typeName}} {{event.raceFormat.code}}
+    </mat-card-subtitle>
+    <mat-card-content>
+        {{event.scheduledStartTime | date:'short'}}<br/>@{{event.location.name}}
+    </mat-card-content>
+    <mat-card-subtitle>
+        {{event.notes}}
+    </mat-card-subtitle>
+</mat-card>

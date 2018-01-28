@@ -1,42 +1,21 @@
-<div class="panel panel-default">
-  <div class="panel-heading">Racer Editor</div>
-  <div class="panel-body">
-    <div class="row">
-      <div class="col-sm-6">
-        <label [for]="racername">Name:</label>
-        <input #racername [(ngModel)]="racer.name">
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-sm-6">
-        <label [for]="bibNumber">Bib Number:</label>
-        <kendo-numerictextbox [min]="1" [max]="150" [format]="'n0'" #bibNumber [(ngModel)]="racer.bibNumber"></kendo-numerictextbox>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-sm-6">
-        <label>Race Series:</label>
-        <kendo-dropdownlist
-          [data]="raceSeries"
-          textField="series"
-          valueField="id"
-          [(ngModel)]="racer.raceSeries">
-        </kendo-dropdownlist>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-sm-4">
-        <label [for]="activeRacer">Is Active:</label>
-        <kendo-switch #activeRacer [(ngModel)]="racer.active"></kendo-switch>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-sm-2">
-        <button kendoButton (click)="saveChanges()">Save</button>
-      </div>
-      <div class="col-sm-2">
-        <button kendoButton (click)="cancelChanges()">Cancel</button>
-      </div>
-    </div>
+<mat-toolbar>Racer Editor</mat-toolbar>
+<div class="flex-container">
+  <mat-form-field>
+    <input matInput placeholder="Name" [(ngModel)]="racer.name">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Bib Number" [min]="1" [max]="150" [(ngModel)]="racer.bibNumber"/>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-select placeholder="Race Series" [(value)]="raceSeriesId">
+      <mat-option *ngFor="let series of raceSeries" [(value)]="series.id">
+        {{series.series}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-checkbox #activeRacer [(ngModel)]="racer.active">Is Active</mat-checkbox>
+  <div class="button-box">
+    <button mat-raised-button color="primary" (click)="saveChanges()">Save</button>&nbsp;
+    <button mat-raised-button color="primary" (click)="cancelChanges()">Cancel</button>  
   </div>
 </div>

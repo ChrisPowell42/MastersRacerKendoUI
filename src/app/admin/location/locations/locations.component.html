@@ -1,14 +1,13 @@
-<div class="row">
- <div class="col-sm-3">
-    <div class="panelbar-wrapper">
-        <div class="row">
-          <div class="col-sm-4"><h4>{{title}}</h4></div>
-          <div class="col-sm-8"><button kendoButton (click)="addNewLocation()">Add Location</button></div>
-        </div>  
-        <app-location-list [locations]=locations></app-location-list>
-      </div>    
-  </div>
-  <div class="col-sm-9">
+<mat-sidenav-container style="height: 100%;">
+  <mat-sidenav opened="true" mode="side" disableClose="true">
+    <mat-toolbar class="flex-container">
+      <div class="title">{{title}}</div>
+      <div class="spacer">&nbsp;</div>
+      <button class="addButton" mat-raised-button color="primary" (click)="addNewLocation()">Add Location</button>
+    </mat-toolbar>
+    <app-location-list [locations]=locations></app-location-list>
+  </mat-sidenav>
+  <section>
     <router-outlet></router-outlet>
-  </div>
-</div>
+  </section>
+</mat-sidenav-container>

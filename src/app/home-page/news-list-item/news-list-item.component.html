@@ -1,4 +1,2 @@
-<p>
-  {{newsItem.articleText}}
-</p>
+<div [innerHTML]="newsItem.articleText"></div>
 <p>{{newsItem.postedOn | date: 'shortDate'}}, {{newsItem.postedBy}}</p>
