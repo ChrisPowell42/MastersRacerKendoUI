@@ -6,7 +6,8 @@ import { FormsModule } from '@angular/forms';
 import { MatCardModule, 
          MatSidenavModule,
          MatToolbarModule, 
-         MatInputModule, 
+         MatInputModule,
+         MatButtonModule,
          MatSelectModule } from '@angular/material';
 
 import { EventListComponent } from './event-list/event-list.component';
@@ -24,7 +25,8 @@ import { RaceResultReviewComponent } from './race-result-review/race-result-revi
     MatCardModule,
     MatSidenavModule,
     MatToolbarModule, 
-    MatInputModule, 
+    MatInputModule,
+    MatButtonModule,
     MatSelectModule
   ],
   declarations: [

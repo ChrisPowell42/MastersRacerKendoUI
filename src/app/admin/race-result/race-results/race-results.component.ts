@@ -43,10 +43,11 @@ export class RaceResultsComponent {
     });
   }
 
-  public selectionChanged(value:RacePhaseModel): void {
+  public selectionChanged(selectedItem): void {
 
-    this.logger.log(value);
-    this.selectedPhase = value;
+    this.logger.log(selectedItem.value);
+    
+    this.selectedPhase = this.racePhases.find(x=> x.id == selectedItem.value);
 
     this.applyFilterToEvents(this.selectedPhase);
 

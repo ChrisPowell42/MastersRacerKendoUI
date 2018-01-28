@@ -32,11 +32,21 @@ export class SeasonListItemComponent {
 
   onMakeActive() {
 
-    this.seasonService.makeSeasonActive(this.season.id).subscribe(res => {
+    this.confirm.okCancel("Make this season the active season?").subscribe(res => {
       if (res) {
-        this.router.navigate(['/admin']).then( (nav) => this.router.navigate(['/admin/seasons/detail', this.season.id]))
+        this.seasonService.makeSeasonActive(this.season.id).subscribe(res => {
+          if (res) {
+            this.router.navigate(['/admin']).then( (nav) => this.router.navigate(['/admin/seasons/detail', this.season.id]))
+          }
+        });    
       }
     });
+
+    // this.seasonService.makeSeasonActive(this.season.id).subscribe(res => {
+    //   if (res) {
+    //     this.router.navigate(['/admin']).then( (nav) => this.router.navigate(['/admin/seasons/detail', this.season.id]))
+    //   }
+    // });
 
   }
 

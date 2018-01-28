@@ -1,11 +1,17 @@
 <mat-sidenav-container style="height: 100%;">
   <mat-sidenav opened="true" mode="side" disableClose="true">
-    <mat-toolbar class="news-title">{{title}}</mat-toolbar>
-    <mat-select class="race-selector" placeholder="Race State">
-      <mat-option *ngFor="let phase of racePhases" [value]="id" (selectionChange)="selectionChanged($event)">
-        {{phase.phase}}
-      </mat-option>
-    </mat-select>  
+    <mat-toolbar class="title">{{title}}</mat-toolbar>
+    <mat-toolbar class="flex-container">
+      <div class="selector-title">Race Phase:</div>
+      <div class="spacer">&nbsp;</div>
+      <mat-form-field class="selector-phase">
+        <mat-select (selectionChange)="selectionChanged($event)">
+          <mat-option *ngFor="let phase of racePhases" [(value)]="phase.id">
+            {{phase.phase}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </mat-toolbar>
      <app-admin-event-list [(raceEvents)]="raceEvents"></app-admin-event-list>  
   </mat-sidenav>
   <section>

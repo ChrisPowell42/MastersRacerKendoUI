@@ -1,11 +1,4 @@
 <div *ngIf='!this.hasEvents()'>No Races</div>
 <div *ngIf='this.hasEvents()'>
-  <mat-card *ngFor='let rEvent of this.raceEvents'>
-    <mat-card-header>
-      <mat-card-title>{{rEvent.raceName}}</mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-      <app-admin-event-list-item [raceEvent]="rEvent"></app-admin-event-list-item>
-    </mat-card-content>
-  </mat-card>
+  <app-admin-event-list-item *ngFor='let rEvent of this.raceEvents' [raceEvent]="rEvent"></app-admin-event-list-item>
 </div>

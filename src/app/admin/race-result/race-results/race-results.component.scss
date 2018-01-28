@@ -1,12 +1,25 @@
-mat-toolbar {
+mat-toolbar.title {
     background-color: goldenrod;
 }
 
 mat-sidenav {
     width: 25%;
+}
+
+.flex-container {
+    flex-direction: row;
+    font-size: 16px;
     background-color: lightgrey;
 }
 
-.race-selector {
-    margin: 2px;
+.selector-title {
+    flex-grow: 0;
+}
+
+.selector-phase {
+    flex-grow: 5;
+}
+
+.spacer {
+    flex-grow: 0;
 }
