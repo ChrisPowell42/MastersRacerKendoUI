@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 import { LoggerService } from '../../../services/logger.service';
 import { SeasonService } from '../../../services/season.service';
+import { ConfirmationService } from '../../../services/confirmation.service';
 
 import { SeasonModel } from '../../../types/season-model.type';
 
@@ -18,6 +19,7 @@ export class SeasonListItemComponent {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
+    private confirm: ConfirmationService,
     private seasonService: SeasonService,
     private logger: LoggerService
   ) {}

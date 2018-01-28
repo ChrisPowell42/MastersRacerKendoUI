@@ -45,6 +45,7 @@ import { CallbackComponent } from './callback/callback.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { NotAuthorizedComponent } from './not-authorized/not-authorized.component';
 import { AdminbuttonComponent } from './adminbutton/adminbutton.component';
+import { OkayCancelDialogComponent } from './services/confirmation.service';
 
 @NgModule({
     declarations: [
@@ -52,7 +53,8 @@ import { AdminbuttonComponent } from './adminbutton/adminbutton.component';
         CallbackComponent,
         PageNotFoundComponent,
         NotAuthorizedComponent,
-        AdminbuttonComponent
+        AdminbuttonComponent,
+        OkayCancelDialogComponent
     ],
     imports: [
         BrowserModule,
