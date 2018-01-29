@@ -21,7 +21,7 @@ export class AuthService {
     domain: 'mastersracers.auth0.com',
     responseType: 'token id_token',
     audience: 'https://mastersracers.auth0.com/userinfo',
-    redirectUri: 'http://mastersracers.azurewebsites.net/callback', //'http://localhost:4200/callback',      
+    redirectUri: 'http://mastersracers.azurewebsites.net/callback',     
     scope: 'openid'
   });
 
