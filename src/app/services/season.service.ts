@@ -13,10 +13,10 @@ import 'rxjs/add/operator/retry';
 @Injectable()
 export class SeasonService {
 
-  private newSeasonURL = '/api/season/new';
-  private activeSeasonURL = '/api/season/active';
-  private seasonURL = '/api/season/';
-  private seasonsURL = '/api/seasons';
+  private newSeasonURL = 'https://mastersracerapi.azurewebsites.net/api/season/new';
+  private activeSeasonURL = 'https://mastersracerapi.azurewebsites.net/api/season/active';
+  private seasonURL = 'https://mastersracerapi.azurewebsites.net/api/season/';
+  private seasonsURL = 'https://mastersracerapi.azurewebsites.net/api/seasons';
 
   constructor(private http: HttpClient,
     private logger: LoggerService,

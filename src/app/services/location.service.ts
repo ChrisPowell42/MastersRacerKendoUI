@@ -13,8 +13,8 @@ import 'rxjs/add/operator/retry';
 @Injectable()
 export class LocationService {
 
-    private locationsUrl = '/api/locations';
-    private locationUrl = '/api/location';
+    private locationsUrl = 'https://mastersracerapi.azurewebsites.net/api/locations';
+    private locationUrl = 'https://mastersracerapi.azurewebsites.net/api/location';
 
     constructor(private http: HttpClient,
                 private logger: LoggerService,

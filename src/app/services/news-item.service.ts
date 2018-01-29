@@ -13,8 +13,8 @@ import 'rxjs/add/operator/retry';
 @Injectable()
 export class NewsItemService {
 
-  private newsItemsUrl: string = '/api/newsitems';
-  private newsItemUrl: string = '/api/newsitem';
+  private newsItemsUrl: string = 'https://mastersracerapi.azurewebsites.net/api/newsitems';
+  private newsItemUrl: string = 'https://mastersracerapi.azurewebsites.net/api/newsitem';
 
   constructor(private http: HttpClient,
     private logger: LoggerService,

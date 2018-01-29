@@ -15,8 +15,8 @@ import 'rxjs/add/operator/retry';
 @Injectable()
 export class RacerService {
 
-  private racersUrl: string = '/api/racers';
-  private racerUrl: string = '/api/racer'
+  private racersUrl: string = 'https://mastersracerapi.azurewebsites.net/api/racers';
+  private racerUrl: string = 'https://mastersracerapi.azurewebsites.net/api/racer'
 
   constructor(private http: HttpClient,
               private logger: LoggerService,

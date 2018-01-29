@@ -17,11 +17,11 @@ import { RaceEventDefaultComponent } from '../admin/race-event/race-event-defaul
 @Injectable()
 export class RaceEventService {
 
-  private activeSeasonRacesUrl: string = '/api/raceevents/active';
-  private activeEventOfType: string = '/api/raceevents/active/eventtype';
-  private activeRaceByPhase: string = '/api/raceevents/active/race/phase';
-  private raceEventUrl: string = '/api/raceevent';
-  private nextEventsUrl: string = '/api/raceevents/next';
+  private activeSeasonRacesUrl: string = 'https://mastersracerapi.azurewebsites.net/api/raceevents/active';
+  private activeEventOfType: string = 'https://mastersracerapi.azurewebsites.net/api/raceevents/active/eventtype';
+  private activeRaceByPhase: string = 'https://mastersracerapi.azurewebsites.net/api/raceevents/active/race/phase';
+  private raceEventUrl: string = 'https://mastersracerapi.azurewebsites.net/api/raceevent';
+  private nextEventsUrl: string = 'https://mastersracerapi.azurewebsites.net/api/raceevents/next';
 
   constructor(private http: HttpClient,
               private logger: LoggerService,
