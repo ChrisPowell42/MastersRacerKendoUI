@@ -1,3 +1,5 @@
 export const environment = {
-  production: true
+  production: true,
+  dataApiUrl: "https://mastersracerapi.azurewebsites.net",
+  authCallbackUrl: "http://mastersracers.azurewebsites.net/callback"
 };

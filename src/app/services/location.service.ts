@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
+import { environment } from '../../environments/environment';
 
 import { LocationModel } from '../types/location-model.type';
 import { LoggerService } from './logger.service';
@@ -13,8 +14,8 @@ import 'rxjs/add/operator/retry';
 @Injectable()
 export class LocationService {
 
-    private locationsUrl = 'https://mastersracerapi.azurewebsites.net/api/locations';
-    private locationUrl = 'https://mastersracerapi.azurewebsites.net/api/location';
+    private locationsUrl = `${environment.dataApiUrl}/api/locations`; //'https://mastersracerapi.azurewebsites.net/api/locations';
+    private locationUrl = `${environment.dataApiUrl}/api/location`;; //'https://mastersracerapi.azurewebsites.net/api/location';
 
     constructor(private http: HttpClient,
                 private logger: LoggerService,

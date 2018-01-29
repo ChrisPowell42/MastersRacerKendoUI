@@ -5,6 +5,7 @@ import { Observable } from 'rxjs/Observable';
 import { NewsItemModel } from '../types/news-item-model.type';
 import { LoggerService } from './logger.service';
 import { ErrorService } from './error.service';
+import { environment } from '../../environments/environment';
 
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
@@ -13,8 +14,8 @@ import 'rxjs/add/operator/retry';
 @Injectable()
 export class NewsItemService {
 
-  private newsItemsUrl: string = 'https://mastersracerapi.azurewebsites.net/api/newsitems';
-  private newsItemUrl: string = 'https://mastersracerapi.azurewebsites.net/api/newsitem';
+  private newsItemsUrl: string = `${environment.dataApiUrl}/api/newsitems`;//'https://mastersracerapi.azurewebsites.net/api/newsitems';
+  private newsItemUrl: string = `${environment.dataApiUrl}/api/newsitem`;//'https://mastersracerapi.azurewebsites.net/api/newsitem';
 
   constructor(private http: HttpClient,
     private logger: LoggerService,

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
+import { environment } from '../../environments/environment';
 
 import { SeasonModel } from '../types/season-model.type';
 import { LoggerService } from './logger.service';
@@ -13,10 +14,10 @@ import 'rxjs/add/operator/retry';
 @Injectable()
 export class SeasonService {
 
-  private newSeasonURL = 'https://mastersracerapi.azurewebsites.net/api/season/new';
-  private activeSeasonURL = 'https://mastersracerapi.azurewebsites.net/api/season/active';
-  private seasonURL = 'https://mastersracerapi.azurewebsites.net/api/season/';
-  private seasonsURL = 'https://mastersracerapi.azurewebsites.net/api/seasons';
+  private newSeasonURL = `${environment.dataApiUrl}/api/season/new`;
+  private activeSeasonURL = `${environment.dataApiUrl}/api/season/active`;
+  private seasonURL = `${environment.dataApiUrl}/api/season`;
+  private seasonsURL = `${environment.dataApiUrl}/api/seasons`;
 
   constructor(private http: HttpClient,
     private logger: LoggerService,
@@ -39,7 +40,7 @@ export class SeasonService {
   }
 
   getSeasons(): Observable<SeasonModel[]> {
-
+    
     return this.http.get<SeasonModel[]>(this.seasonsURL)
                     .do(sl => sl.forEach(s => s.label = this.getLabel(s)))
                     .retry(3)

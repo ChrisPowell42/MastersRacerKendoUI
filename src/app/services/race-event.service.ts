@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
+import { environment } from '../../environments/environment';
 
 import { RaceEventModel } from '../types/race-event-model.type';
 import { SeasonModel } from '../types/season-model.type';
@@ -17,11 +18,11 @@ import { RaceEventDefaultComponent } from '../admin/race-event/race-event-defaul
 @Injectable()
 export class RaceEventService {
 
-  private activeSeasonRacesUrl: string = 'https://mastersracerapi.azurewebsites.net/api/raceevents/active';
-  private activeEventOfType: string = 'https://mastersracerapi.azurewebsites.net/api/raceevents/active/eventtype';
-  private activeRaceByPhase: string = 'https://mastersracerapi.azurewebsites.net/api/raceevents/active/race/phase';
-  private raceEventUrl: string = 'https://mastersracerapi.azurewebsites.net/api/raceevent';
-  private nextEventsUrl: string = 'https://mastersracerapi.azurewebsites.net/api/raceevents/next';
+  private activeSeasonRacesUrl: string = `${environment.dataApiUrl}/api/raceevents/active`; //'https://mastersracerapi.azurewebsites.net/api/raceevents/active';
+  private activeEventOfType: string = `${environment.dataApiUrl}/api/raceevents/active/eventtype`; //'https://mastersracerapi.azurewebsites.net/api/raceevents/active/eventtype';
+  private activeRaceByPhase: string = `${environment.dataApiUrl}/api/raceevents/active/race/phase`; //'https://mastersracerapi.azurewebsites.net/api/raceevents/active/race/phase';
+  private raceEventUrl: string = `${environment.dataApiUrl}/api/raceevent`; //'https://mastersracerapi.azurewebsites.net/api/raceevent';
+  private nextEventsUrl: string = `${environment.dataApiUrl}/api/raceevents/next`; //'https://mastersracerapi.azurewebsites.net/api/raceevents/next';
 
   constructor(private http: HttpClient,
               private logger: LoggerService,

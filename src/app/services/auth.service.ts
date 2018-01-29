@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { environment } from '../../environments/environment';
 
 import { LoggerService } from './logger.service';
 
@@ -21,7 +22,7 @@ export class AuthService {
     domain: 'mastersracers.auth0.com',
     responseType: 'token id_token',
     audience: 'https://mastersracers.auth0.com/userinfo',
-    redirectUri: 'http://mastersracers.azurewebsites.net/callback',     
+    redirectUri: environment.authCallbackUrl,     
     scope: 'openid'
   });
 

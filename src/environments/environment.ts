@@ -4,5 +4,7 @@
 // The list of which env maps to which file can be found in `.angular-cli.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  dataApiUrl: "https://mastersracerapi.azurewebsites.net",
+  authCallbackUrl: "http://localhost:4200/callback"
 };

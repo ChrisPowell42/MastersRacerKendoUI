@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
+import { environment } from '../../environments/environment';
 
 import { SeasonModel } from '../types/season-model.type';
 import { LoggerService } from './logger.service';
@@ -15,8 +16,8 @@ import 'rxjs/add/operator/retry';
 @Injectable()
 export class RacerService {
 
-  private racersUrl: string = 'https://mastersracerapi.azurewebsites.net/api/racers';
-  private racerUrl: string = 'https://mastersracerapi.azurewebsites.net/api/racer'
+  private racersUrl: string = `${environment.dataApiUrl}/api/racers`;//'https://mastersracerapi.azurewebsites.net/api/racers';
+  private racerUrl: string = `${environment.dataApiUrl}/api/racer`;//'https://mastersracerapi.azurewebsites.net/api/racer'
 
   constructor(private http: HttpClient,
               private logger: LoggerService,
