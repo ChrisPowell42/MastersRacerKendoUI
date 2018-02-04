@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { environment } from '../../environments/environment';
 
 import { LoggerService } from './logger.service';
+import { ErrorService } from './error.service';
 
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
@@ -26,22 +27,30 @@ export class AuthService {
     scope: 'openid'
   });
 
-  constructor(public router: Router,
-              public logger: LoggerService) {}
+  constructor(private router: Router,
+              private logger: LoggerService,
+              private error: ErrorService) {}
 
   public login(): void {
     this.auth0.authorize();
   }
 
   public handleAuthentication(): void {
+
+    this.logger.log("Auth Service, HandleAuthentication");
+    
     this.auth0.parseHash((err, authResult) => {
+
+      //this.logger.log(authResult);
+
       if (authResult && authResult.accessToken && authResult.idToken) {
         window.location.hash = '';
         this.setSession(authResult);
-        this.router.navigate(['/home']);
+        this.router.navigate(['/admin']);
       } else if (err) {
+        
+        this.error.displayError(err);
         this.router.navigate(['/home']);
-        console.log(err);
       }
     });
   }
@@ -73,6 +82,7 @@ export class AuthService {
   public isAuthenticatedObs(): Observable<boolean> {
     return Observable.of(this.isAuthenticated());
   }
+
 
   public getProfile(cb): void {
     const accessToken = localStorage.getItem('access_token');

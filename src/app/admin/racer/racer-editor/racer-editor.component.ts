@@ -44,10 +44,11 @@ export class RacerEditorComponent  {
 
     this.logger.log(this.racer);
 
-    if (this.racer.id == null)
+    this.racer.raceSeries = this.raceSeries.find(x=>x.id == this.raceSeriesId);
+
+    if (this.racer.hasEmptyId)
     {
-      this.racer.raceSeries = this.raceSeries.find(x=>x.id == this.raceSeriesId);
-      this.logger.log("Pre-AddRacer");
+      //this.logger.log("Pre-AddRacer");
       this.racerService.addRacer(this.racer).subscribe(
         res => {
           this.router.navigate(['/admin']).then( () => this.router.navigate([`/admin/racers/detail/${res.id}`]));
@@ -56,8 +57,7 @@ export class RacerEditorComponent  {
 
     }
     else {
-      this.racer.raceSeries = this.raceSeries.find(x=>x.id == this.raceSeriesId);
-      this.logger.log("Pre-SaveRacer");
+      //this.logger.log("Pre-SaveRacer");
       this.racerService.saveRacer(this.racer).subscribe(
         res => {
           this.router.navigate(['/admin']).then( () => this.router.navigate([`/admin/racers/detail/${this.racer.id}`]));

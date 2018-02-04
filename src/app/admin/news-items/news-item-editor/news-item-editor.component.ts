@@ -29,22 +29,28 @@ export class NewsItemEditorComponent {
 
       this.route.data.subscribe(val => {
         this.newsItem = val["newsItem"];
-        this.articleTypeId = this.newsItem.articleType.id;
         this.articleTypes = val["articleTypeList"];
+        if (this.newsItem.articleType != null)
+          this.articleTypeId = this.newsItem.articleType.id;
+        else
+          this.articleTypeId = null;
       });
       
     }
 
   onSaveChanges() {
 
-    if (this.newsItem.id == null) {
-      this.newsItem.articleType = this.articleTypes.find(x=>x.id == this.articleTypeId);
+    this.logger.log(this.newsItem);
+
+    this.newsItem.articleType = this.articleTypes.find(x=>x.id == this.articleTypeId);
+
+    if (this.newsItem.hasEmptyId) {
       this.nis.addNewsItem(this.newsItem).subscribe( res => {
+        this.logger.log(res);
         this.router.navigate(['/admin']).then( () => this.router.navigate([`/admin/newsitems/detail/${res.id}`]));        
       });
     }
-    else {
-      this.newsItem.articleType = this.articleTypes.find(x=>x.id == this.articleTypeId);
+    else {      
       this.nis.saveNewsItem(this.newsItem).subscribe( res => {
         this.router.navigate(['/admin']).then( () => this.router.navigate([`/admin/newsitems/detail/${this.newsItem.id}`]));        
       });

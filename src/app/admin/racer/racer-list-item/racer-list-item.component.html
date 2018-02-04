@@ -1,7 +1,9 @@
 <mat-card>
   <mat-card-title>{{racer.name}}</mat-card-title>
   <mat-card-content>
-      {{racer.bibNumber}} {{racer.name}} - {{racer.raceSeries.name}} {{racer.raceSeries.gender}}
+      {{racer.bibNumber}} {{racer.name}} - {{racer.raceSeries.name}} {{racer.raceSeries.gender}}<br/>
+      <span *ngIf='racer.active'>Active</span>
+      <span *ngIf='!racer.active'>Not Active</span>
   </mat-card-content>
   <mat-card-actions align="end">
     <button mat-raised-button (click)="onSelectDetails()">Details</button>

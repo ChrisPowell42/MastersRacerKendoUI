@@ -1,10 +1,10 @@
-<mat-toolbar>Race Editor</mat-toolbar>
+<mat-toolbar>Event Editor</mat-toolbar>
 <div class="flex-container">
   <mat-form-field>
     <input matInput placeholder="Name" [(ngModel)]="raceEvent.raceName">
   </mat-form-field>
   <mat-form-field>
-    <mat-select placeholder="Race Type" [(value)]="raceEventTypeId">
+    <mat-select placeholder="Event Type" [(value)]="raceEventTypeId">
       <mat-option *ngFor="let raceType of raceEventTypes" [(value)]="raceType.id" >
         {{raceType.typeName}}
       </mat-option>
@@ -22,7 +22,7 @@
     <mat-datepicker-toggle matSuffix [for]="startDate"></mat-datepicker-toggle>
     <mat-datepicker #startDate></mat-datepicker>
   </mat-form-field>
-  <mat-form-field *ngIf='this.isRace()'>
+  <mat-form-field *ngIf='this.isRace'>
     <input matInput type="number" placeholder="Number of Runs" [(ngModel)]="raceEvent.runCount">
   </mat-form-field>
   <mat-form-field>

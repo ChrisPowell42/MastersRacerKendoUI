@@ -39,10 +39,10 @@ export class LocationEditorComponent {
 
     saveChanges() {
 
-      //this.logger.log("Save Changes from Editor");
-      //this.logger.log(this.location);
+      this.logger.log("Save Changes from Editor");
+      this.logger.log(this.location);
 
-      if (this.location.id == null )
+      if (this.location.hasEmptyId )
       {
         this.locationServe.addLocation(this.location).subscribe(
           res => {

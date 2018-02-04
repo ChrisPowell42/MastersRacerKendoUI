@@ -22,11 +22,11 @@ export class RefDataService {
                 private logger: LoggerService,
                 private errorHandler: ErrorService) { }
 
-    private raceFormatUrl = `${environment.dataApiUrl}/api/refdata/raceformats`;//'https://mastersracerapi.azurewebsites.net/api/refdata/raceformats';
-    private raceSeriesUrl = `${environment.dataApiUrl}/api/refdata/raceseries`;//'https://mastersracerapi.azurewebsites.net/api/refdata/raceseries';
-    private racePhasesUrl = `${environment.dataApiUrl}/api/refdata/racephases`;//'https://mastersracerapi.azurewebsites.net/api/refdata/racephases';
-    private articleTypesUrl = `${environment.dataApiUrl}/api/refdata/articletypes`;//'https://mastersracerapi.azurewebsites.net/api/refdata/articletypes';
-    private raceEventTypesUrl = `${environment.dataApiUrl}/api/refdata/raceeventtypes`;//'https://mastersracerapi.azurewebsites.net/api/refdata/raceeventtypes';
+    private raceFormatUrl = `${environment.dataApiUrl}/api/refdata/raceformats`;
+    private raceSeriesUrl = `${environment.dataApiUrl}/api/refdata/raceseries`;
+    private racePhasesUrl = `${environment.dataApiUrl}/api/refdata/racephases`;
+    private articleTypesUrl = `${environment.dataApiUrl}/api/refdata/articletypes`;
+    private raceEventTypesUrl = `${environment.dataApiUrl}/api/refdata/raceeventtypes`;
 
     getRaceFormats(): Observable<RaceFormatModel[]> {
 

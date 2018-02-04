@@ -16,7 +16,7 @@ export class RaceEventsComponent {
 
   raceEvents: RaceEventModel[];
   activeSeason: SeasonModel;
-  title: string = "Races";
+  title: string = "Events";
 
   constructor(private route: ActivatedRoute,
               private router: Router,    

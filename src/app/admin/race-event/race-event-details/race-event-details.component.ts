@@ -23,12 +23,11 @@ export class RaceEventDetailsComponent {
             
               }
 
-  isRace(): boolean {
+  get isRace(): boolean {
     //this.logger.log("isRace check");
-    this.logger.log(this.raceEvent.raceEventType);
-    this.logger.log(RaceEventTypeModel.raceId);
+    // this.logger.log(this.raceEvent.raceEventType);
+    // this.logger.log(RaceEventTypeModel.raceId);
     return this.raceEvent.raceEventType.id == RaceEventTypeModel.raceId;
   }
-
 
 }

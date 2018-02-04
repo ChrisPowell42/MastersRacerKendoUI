@@ -36,11 +36,12 @@ export class RaceEventEditorComponent {
     this.route.data.subscribe(val => {
 
       this.raceEvent = val["raceEvent"];
-      //this.logger.log(this.raceEvent);
+      this.logger.log("RaceEvent Set to:")
+      this.logger.log(this.raceEvent);
 
-      this.raceEventTypeId = this.raceEvent.raceEventType.id;
-      this.raceFormatId = this.raceEvent.raceFormat.id;
-      this.locationId = this.raceEvent.location.id;
+      this.raceEventTypeId = this.raceEvent.raceEventType == null ? null : this.raceEvent.raceEventType.id;
+      this.raceFormatId = this.raceEvent.raceFormat == null ? null :this.raceEvent.raceFormat.id;
+      this.locationId = this.raceEvent.location == null ? null : this.raceEvent.location.id;
 
       this.activeSeason = val["activeSeason"];
       this.locations = val["locationsList"];
@@ -57,7 +58,13 @@ export class RaceEventEditorComponent {
     
     this.logger.log(this.raceEvent);
 
-    if (this.raceEvent.id == null){
+    //this.newsItem.articleType = this.articleTypes.find(x=>x.id == this.articleTypeId);
+
+    this.raceEvent.raceEventType = this.raceEventTypes.find(x=>x.id == this.raceEventTypeId);
+    this.raceEvent.raceFormat = this.raceFormats.find(x=>x.id == this.raceFormatId);
+    this.raceEvent.location = this.locations.find(x=>x.id == this.locationId);
+
+    if (this.raceEvent.hasEmptyId){
 
       this.raceEvent.season = this.activeSeason;
 
@@ -82,9 +89,10 @@ export class RaceEventEditorComponent {
 
   }
 
-  isRace(): boolean {
+  get isRace(): boolean {
     
-    return this.raceEvent.raceEventType == null || this.raceEvent.raceEventType.id == RaceEventTypeModel.raceId;
+    return this.raceEventTypeId == null || this.raceEventTypeId == RaceEventTypeModel.raceId;
+
   }
   
 }

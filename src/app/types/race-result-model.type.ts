@@ -1,9 +1,10 @@
 import { RunResultModel } from './run-result-model.type';
 import { RacerModel } from './racer-model.type';
 import { RaceEventModel } from './race-event-model.type';
+import { basemodel } from './base-model.type';
 
-export class RaceResultModel {
-    id: string;
+export class RaceResultModel extends basemodel {
+    
     raceEventId: string;
     racerId: string;
     totalRaceTime: number;
@@ -13,4 +14,5 @@ export class RaceResultModel {
     runResults: RunResultModel[];
     raceEvent: RaceEventModel;
     racer: RacerModel;
+    
 }

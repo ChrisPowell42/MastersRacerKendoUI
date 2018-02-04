@@ -14,21 +14,25 @@ import 'rxjs/add/operator/retry';
 @Injectable()
 export class NewsItemService {
 
-  private newsItemsUrl: string = `${environment.dataApiUrl}/api/newsitems`;//'https://mastersracerapi.azurewebsites.net/api/newsitems';
-  private newsItemUrl: string = `${environment.dataApiUrl}/api/newsitem`;//'https://mastersracerapi.azurewebsites.net/api/newsitem';
+  private newsItemsUrl: string = `${environment.dataApiUrl}/api/newsitems`;
+  private newsItemUrl: string = `${environment.dataApiUrl}/api/newsitem`;
 
   constructor(private http: HttpClient,
     private logger: LoggerService,
     private errorHandler: ErrorService) { }
 
+  createNewsItem(): NewsItemModel {
 
-  newNewsItem(): NewsItemModel {
+      return new NewsItemModel();
+  }
 
-    let newItem: NewsItemModel = new NewsItemModel();
+  newNewsItem(): Observable<NewsItemModel> {
 
-    newItem.postedBy = "Some user"; // will change to get the current user from the auth service.
+    let url = `${this.newsItemUrl}/new`;
 
-    return newItem;
+    return this.http.get<NewsItemModel>(url)
+                    .retry(3)
+                    .catch(err => this.errorHandler.handleError(err));
 
   }
 
@@ -60,6 +64,9 @@ export class NewsItemService {
   }
 
   addNewsItem(newItem: NewsItemModel): Observable<NewsItemModel> {
+
+    this.logger.log("Adding New News Item in Service");
+    this.logger.log(newItem);
 
     return this.http.post<NewsItemModel>(this.newsItemUrl, newItem)
                     .catch(err => this.errorHandler.handleError(err));

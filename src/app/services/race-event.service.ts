@@ -18,11 +18,11 @@ import { RaceEventDefaultComponent } from '../admin/race-event/race-event-defaul
 @Injectable()
 export class RaceEventService {
 
-  private activeSeasonRacesUrl: string = `${environment.dataApiUrl}/api/raceevents/active`; //'https://mastersracerapi.azurewebsites.net/api/raceevents/active';
-  private activeEventOfType: string = `${environment.dataApiUrl}/api/raceevents/active/eventtype`; //'https://mastersracerapi.azurewebsites.net/api/raceevents/active/eventtype';
-  private activeRaceByPhase: string = `${environment.dataApiUrl}/api/raceevents/active/race/phase`; //'https://mastersracerapi.azurewebsites.net/api/raceevents/active/race/phase';
-  private raceEventUrl: string = `${environment.dataApiUrl}/api/raceevent`; //'https://mastersracerapi.azurewebsites.net/api/raceevent';
-  private nextEventsUrl: string = `${environment.dataApiUrl}/api/raceevents/next`; //'https://mastersracerapi.azurewebsites.net/api/raceevents/next';
+  private activeSeasonRacesUrl: string = `${environment.dataApiUrl}/api/raceevents/active`;
+  private activeEventOfType: string = `${environment.dataApiUrl}/api/raceevents/active/eventtype`;
+  private activeRaceByPhase: string = `${environment.dataApiUrl}/api/raceevents/active/race/phase`;
+  private raceEventUrl: string = `${environment.dataApiUrl}/api/raceevent`;
+  private nextEventsUrl: string = `${environment.dataApiUrl}/api/raceevents/next`;
 
   constructor(private http: HttpClient,
               private logger: LoggerService,
@@ -30,7 +30,11 @@ export class RaceEventService {
 
   getNewRaceEvent(): RaceEventModel {
 
-    return new RaceEventModel();
+    let returnValue: RaceEventModel =  new RaceEventModel();
+
+    this.logger.log(returnValue);
+
+    return returnValue;
     
   }
 

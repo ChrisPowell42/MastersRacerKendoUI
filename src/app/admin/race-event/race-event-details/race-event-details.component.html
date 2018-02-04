@@ -1,11 +1,13 @@
 <mat-toolbar>Details</mat-toolbar>
-<mat-list>
-  <mat-list-item>Race Name: {{raceEvent.raceName}}</mat-list-item>
-  <mat-list-item>Event Type: {{raceEvent.raceEventType.typeName}}</mat-list-item>
-  <mat-list-item>Format: {{raceEvent.raceFormat.name}}</mat-list-item>
-  <mat-list-item *ngIf='this.isRace()'>Runs: {{raceEvent.runCount}}</mat-list-item>
-  <mat-list-item>Season: {{raceEvent.season.startYear}} - {{raceEvent.season.endYear}}</mat-list-item>
-  <mat-list-item>Location: {{raceEvent.location.name}}</mat-list-item>
-  <mat-list-item>Start: {{raceEvent.scheduledStartTime | date:'short'}}</mat-list-item>
-  <mat-list-item>Notes: {{raceEvent.notes}}</mat-list-item>
-</mat-list>
+<mat-card>
+  <mat-card-title>
+    {{raceEvent.raceName}} - {{raceEvent.scheduledStartTime | date:'short'}}
+  </mat-card-title>
+  <mat-card-subtitle>
+    {{raceEvent.raceEventType.typeName}} - {{raceEvent.raceFormat.name}}<span *ngIf='isRace'>, {{raceEvent.runCount}} runs</span>
+  </mat-card-subtitle>
+  <mat-card-content>
+    {{raceEvent.location.name}}
+    <p *ngIf='raceEvent.notes'>{{raceEvent.notes}}</p>
+  </mat-card-content>
+</mat-card>

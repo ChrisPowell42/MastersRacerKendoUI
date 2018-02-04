@@ -1,11 +1,11 @@
 <mat-sidenav-container>
-  <mat-sidenav class="event-nav" opened="true" mode="side" disableClose="true">
+  <mat-sidenav class="event-nav" position="start" opened="true" mode="side" disableClose="true">
     <app-race-schedule-list [nextEvents]='nextEvents'></app-race-schedule-list>
   </mat-sidenav>
   <mat-sidenav class="race-nav" position="end" opened="true" mode="side" disableClose="true">
     <app-race-results-list></app-race-results-list>
   </mat-sidenav>
-  <section>
+  <mat-sidenav-content>
     <app-news-list [newsItems]='newsItems'></app-news-list>
-  </section>
+  </mat-sidenav-content>
 </mat-sidenav-container>

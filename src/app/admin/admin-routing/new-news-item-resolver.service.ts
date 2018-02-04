@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Router, Resolve, RouterStateSnapshot,
          ActivatedRouteSnapshot } from '@angular/router';
-import { Observable } from 'rxjs/Observable';
 
 import { NewsItemModel } from '../../types/news-item-model.type';
 
@@ -20,8 +19,14 @@ export class NewNewsItemResolverService implements Resolve<NewsItemModel> {
 
   resolve( route: ActivatedRouteSnapshot, state: RouterStateSnapshot): NewsItemModel {
 
-    //this.logger.log("Creating new Loction from Resolver");
-    return this.nis.newNewsItem();
+    this.logger.log("Fetching new news item.");
+
+    return this.nis.createNewsItem();
+
+    // return this.nis.newNewsItem().map(newsItem => {
+    //   this.logger.log(newsItem);
+    //   return newsItem;
+    // });
 
   } 
 }

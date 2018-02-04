@@ -18,5 +18,5 @@
     <button mat-raised-button color="primary" (click)="onDelete()">Delete</button>
     <button mat-raised-button color="primary" (click)="onCancel()">Cancel</button>  
   </div>
-  <div class="byline">Originally posted on {{newsItem.postedOn | date:'shortDate'}} by {{newsItem.postedBy}}</div>
+  <div class="byline" *ngIf="!newsItem.hasEmptyId" >Originally posted on {{newsItem.postedOn | date:'shortDate'}} by {{newsItem.postedBy}}</div>
 </div>

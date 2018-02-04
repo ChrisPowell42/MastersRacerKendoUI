@@ -14,8 +14,8 @@ import 'rxjs/add/operator/retry';
 @Injectable()
 export class LocationService {
 
-    private locationsUrl = `${environment.dataApiUrl}/api/locations`; //'https://mastersracerapi.azurewebsites.net/api/locations';
-    private locationUrl = `${environment.dataApiUrl}/api/location`;; //'https://mastersracerapi.azurewebsites.net/api/location';
+    private locationsUrl = `${environment.dataApiUrl}/api/locations`;
+    private locationUrl = `${environment.dataApiUrl}/api/location`;
 
     constructor(private http: HttpClient,
                 private logger: LoggerService,
@@ -24,13 +24,7 @@ export class LocationService {
     newLocation(): LocationModel {
 
         let returnLocation = new LocationModel();
-            
-        returnLocation.id = null;
-        returnLocation.name = "";
-        returnLocation.description = "";
-        returnLocation.latPos = 0;
-        returnLocation.longPos = 0;
-
+                    
         //this.logger.log("Created New Location, LocationService");
         //this.logger.log(returnLocation);
 
