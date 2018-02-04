@@ -26,16 +26,6 @@ export class NewsItemService {
       return new NewsItemModel();
   }
 
-  newNewsItem(): Observable<NewsItemModel> {
-
-    let url = `${this.newsItemUrl}/new`;
-
-    return this.http.get<NewsItemModel>(url)
-                    .retry(3)
-                    .catch(err => this.errorHandler.handleError(err));
-
-  }
-
   getNewsItems(): Observable<NewsItemModel[]> {
 
     return this.http.get<NewsItemModel[]>(this.newsItemsUrl)

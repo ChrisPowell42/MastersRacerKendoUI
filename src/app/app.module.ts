@@ -22,6 +22,7 @@ import { RaceResultService } from './services/race-result.service';
 import { NewsItemService } from './services/news-item.service';
 import { ConfirmationService } from './services/confirmation.service';
 import { RefDataService } from './services/refdata.service';
+import { MessageService } from './services/message.service';
 import { ErrorService } from './services/error.service';
 import { LoggerService } from './services/logger.service';
 
@@ -88,6 +89,7 @@ import { OkayCancelDialogComponent } from './okay-cancel-dialog/okay-cancel-dial
         RefDataService,
         ErrorService,
         ConfirmationService,
+        MessageService,
         LoggerService,
         FrontPageNewsResolverService,
         NextRaceEventsResolverService
