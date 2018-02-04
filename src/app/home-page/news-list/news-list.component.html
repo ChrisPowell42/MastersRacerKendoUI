@@ -3,12 +3,5 @@
 </mat-toolbar>  
 <div *ngIf='!newsItems'>No News</div>
 <div *ngIf='newsItems'>
-  <mat-accordion>
-    <mat-expansion-panel *ngFor='let item of newsItems' [title]='item.title'>
-      <mat-expansion-panel-header>
-        <mat-panel-title>{{item.title}}</mat-panel-title>
-      </mat-expansion-panel-header>
-      <app-news-list-item [newsItem]='item'></app-news-list-item>
-    </mat-expansion-panel>
-  </mat-accordion>
+  <app-news-list-item *ngFor='let item of newsItems' [title]='item.title' [newsItem]='item'></app-news-list-item>
 </div>

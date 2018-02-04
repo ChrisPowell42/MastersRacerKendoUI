@@ -1,8 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import {MatExpansionModule, 
-        MatGridListModule,
+import {MatGridListModule,
         MatToolbarModule,
         MatCardModule,
         MatSidenavModule} from '@angular/material';
@@ -18,7 +17,6 @@ import { RaceResultsListItemComponent } from './race-results-list-item/race-resu
 @NgModule({
   imports: [
     CommonModule,
-    MatExpansionModule,
     MatGridListModule,
     MatToolbarModule,
     MatCardModule,

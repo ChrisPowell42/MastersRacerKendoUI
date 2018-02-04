@@ -57,6 +57,9 @@ import { OkayCancelDialogComponent } from './okay-cancel-dialog/okay-cancel-dial
         AdminbuttonComponent,
         OkayCancelDialogComponent
     ],
+    entryComponents: [
+        OkayCancelDialogComponent
+    ],
     imports: [
         BrowserModule,
         FormsModule,

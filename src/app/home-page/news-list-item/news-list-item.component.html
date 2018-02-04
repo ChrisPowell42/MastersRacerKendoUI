@@ -1,2 +1,11 @@
-<div [innerHTML]="newsItem.articleText"></div>
-<p>{{newsItem.postedOn | date: 'shortDate'}}, {{newsItem.postedBy}}</p>
+<mat-card>
+    <mat-card-title>
+        {{newsItem.title}}
+    </mat-card-title>
+    <mat-card-content>
+        <div [innerHTML]="newsItem.articleText"></div>
+    </mat-card-content>
+    <mat-card-footer>
+        {{newsItem.postedOn | date: 'shortDate'}}, {{newsItem.postedBy}}
+    </mat-card-footer>
+</mat-card>
