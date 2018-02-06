@@ -12,6 +12,7 @@
   <mat-form-field>
     <input matInput placeholder="Longitude" type="numeric" [(ngModel)]="location.longPos"/>
   </mat-form-field>
+  <mat-checkbox #activeLocation [(ngModel)]="location.active">Is Active</mat-checkbox>
   <div class="buttonBox">
     <button mat-raised-button color="primary" (click)="saveChanges()">Save</button>
     <button mat-raised-button color="primary" (click)="cancelChanges()">Cancel</button>

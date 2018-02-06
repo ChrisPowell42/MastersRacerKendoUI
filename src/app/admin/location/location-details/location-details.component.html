@@ -5,6 +5,10 @@
     <mat-card-title>
         {{location.name}}
     </mat-card-title>
+    <mat-card-subtitle>
+        <span *ngIf="location.active">Active</span>
+        <span *ngIf="!location.active">Not Active</span>
+    </mat-card-subtitle>
     <mat-card-content>
         <p>{{location.description}}</p>
         <p>Lat: {{location.latPos}}, Long: {{location.longPos}}</p>

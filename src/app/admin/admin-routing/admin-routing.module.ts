@@ -8,6 +8,7 @@ import { LocationDefaultComponent } from '../location/location-default/location-
 import { LocationEditorComponent } from '../location/location-editor/location-editor.component';
 import { LocationDetailsComponent } from '../location/location-details/location-details.component';
 
+import { ActiveLocationsResolverService } from '../admin-routing/active-locations-resolver.service';
 import { LocationsResolverService } from '../admin-routing/locations-resolver.service';
 import { LocationResolverService } from '../admin-routing/location-resolver.service';
 import { NewLocationResolverService} from '../admin-routing/newlocation-resolver.service';
@@ -96,13 +97,13 @@ const adminRoutes: Routes = [
         { path: 'new', component: RaceEventEditorComponent, canActivate: [AuthGuardService], resolve: { raceEvent: NewRaceEventResolverService,
                                                                                                         activeSeason: ActiveSeasonResolverService, 
                                                                                                         raceFormats: RaceFormatResolverService,
-                                                                                                        locationsList: LocationsResolverService,
+                                                                                                        locationsList: ActiveLocationsResolverService,
                                                                                                         raceEventTypes: RaceEventTypesResolverService}},
         { path: 'detail/:id', component: RaceEventDetailsComponent, canActivate: [AuthGuardService], resolve: {raceEvent: RaceEventResolverService}},
         { path: 'edit/:id', component: RaceEventEditorComponent, canActivate: [AuthGuardService], resolve: { raceEvent: RaceEventResolverService,
                                                                                                              activeSeason: ActiveSeasonResolverService, 
                                                                                                              raceFormats: RaceFormatResolverService,
-                                                                                                             locationsList: LocationsResolverService,
+                                                                                                             locationsList: ActiveLocationsResolverService,
                                                                                                              raceEventTypes: RaceEventTypesResolverService}}
       ]},
   { path: 'admin/raceresults', component: RaceResultsComponent, canActivate: [AuthGuardService], resolve: { racePhases: RacePhasesResolverService,

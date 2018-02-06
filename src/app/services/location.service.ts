@@ -42,6 +42,16 @@ export class LocationService {
 
     }
 
+    getActiveLocations(): Observable<LocationModel[]> {
+
+        let url:string = `${this.locationsUrl}/active`;
+
+        return this.http.get<LocationModel[]>(url)
+                        .retry(3)
+                        .catch(error => this.errorHandler.handleError(error));
+
+    }
+
     getLocation(id: string): Observable<LocationModel> {
 
         //this.logger.log('Getting Location, LocationService');

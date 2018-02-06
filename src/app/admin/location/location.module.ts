@@ -5,6 +5,7 @@ import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
 import { MatCardModule, 
+         MatCheckboxModule,
          MatToolbarModule, 
          MatInputModule, 
          MatSelectModule,
@@ -25,6 +26,7 @@ import { LocationListComponent } from './location-list/location-list.component';
     RouterModule,
     FormsModule,
     MatCardModule,
+    MatCheckboxModule,
     MatToolbarModule,
     MatInputModule,
     MatSelectModule,

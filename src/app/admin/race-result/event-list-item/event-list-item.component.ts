@@ -16,7 +16,7 @@ export class EventListItemComponent {
 
   constructor(private logger: LoggerService) { }
 
-  buttonText(): string {
+  get buttonText(): string {
 
     if (this.raceEvent.racePhase.id == RacePhaseModel.scheduledId)
     {

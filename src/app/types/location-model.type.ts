@@ -6,6 +6,7 @@ export class LocationModel extends basemodel {
     description: string;
     latPos: number;
     longPos: number;
+    active: boolean;
     
     constructor() {
         super();
@@ -14,7 +15,7 @@ export class LocationModel extends basemodel {
         this.description = "";
         this.latPos= 0;
         this.longPos = 0;
-
+        this.active = true;
     }
 
 }

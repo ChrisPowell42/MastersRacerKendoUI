@@ -9,6 +9,7 @@ import { RaceEventModule } from './race-event/race-event.module';
 import { NewsItemsModule } from './news-items/news-items.module';
 import { RaceResultModule} from './race-result/race-result.module';
 
+import { ActiveLocationsResolverService } from './admin-routing/active-locations-resolver.service';
 import { LocationsResolverService } from './admin-routing/locations-resolver.service';
 import { LocationResolverService } from './admin-routing/location-resolver.service';
 import { NewLocationResolverService } from './admin-routing/newlocation-resolver.service';
@@ -49,6 +50,7 @@ import { NewNewsItemResolverService } from './admin-routing/new-news-item-resolv
   ],
   declarations: [ AdminComponent ],
   providers: [ 
+                ActiveLocationsResolverService,
                 LocationsResolverService,
                 LocationResolverService,
                 NewLocationResolverService,

@@ -10,7 +10,7 @@ import { ErrorService } from '../../services/error.service';
 import { LoggerService } from '../../services/logger.service';
 
 @Injectable()
-export class ActiveSeasonResolverService {
+export class ActiveSeasonResolverService implements Resolve<SeasonModel> {
 
   constructor (private ss: SeasonService,
                private error: ErrorService,
