@@ -22,11 +22,7 @@ export class RacerResolverService implements Resolve<RacerModel> {
     let id = route.paramMap.get('id');
     this.logger.log(id);
 
-    return this.rs.getRacer(id).map( racer => {
-      if (racer) {
-        return racer;
-      }
-    });
+    return this.rs.getRacer(id);
 
   }    
 

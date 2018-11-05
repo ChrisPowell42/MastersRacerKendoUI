@@ -5,6 +5,6 @@
 
 export const environment = {
   production: false,
-  dataApiUrl: "https://mastersracerapi.azurewebsites.net",
+  dataApiUrl: "", //"https://mastersracerapi.azurewebsites.net",
   authCallbackUrl: "http://localhost:4200/callback"
 };

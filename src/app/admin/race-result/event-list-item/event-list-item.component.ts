@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { RaceEventModel } from '../../../types/race-event-model.type';
 import { RacePhaseModel } from '../../../types/racePhase.type';
@@ -14,7 +15,9 @@ export class EventListItemComponent {
 
   @Input() raceEvent: RaceEventModel;
 
-  constructor(private logger: LoggerService) { }
+  constructor(private route: ActivatedRoute,
+              private router: Router,
+              private logger: LoggerService) { }
 
   get buttonText(): string {
 
@@ -26,7 +29,8 @@ export class EventListItemComponent {
     {
       return "Continue Recording";
     }
-    else {
+    else 
+    {
       return "Review Results";
     }
 
@@ -35,7 +39,20 @@ export class EventListItemComponent {
   nextStep(): void {
 
     this.logger.log("Next Step clicked");
-    
+
+    if (this.raceEvent.racePhase.id == RacePhaseModel.scheduledId)
+    {
+      this.router.navigate(['/admin/raceresults/record', this.raceEvent.id, 'new'])      
+    }
+    else if (this.raceEvent.racePhase.id == RacePhaseModel.recordingId)
+    {
+      this.router.navigate(['/admin/raceresults/record', this.raceEvent.id])            
+    }
+    else 
+    {
+      
+    }
+        
   }
 
 }

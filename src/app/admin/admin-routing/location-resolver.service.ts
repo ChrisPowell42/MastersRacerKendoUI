@@ -10,7 +10,7 @@ import { ErrorService } from '../../services/error.service';
 import { LoggerService } from '../../services/logger.service';
 
 @Injectable()
-export class LocationResolverService {
+export class LocationResolverService implements Resolve<LocationModel>{
 
   constructor (private ls: LocationService,
     private error: ErrorService,

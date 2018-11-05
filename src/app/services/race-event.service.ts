@@ -13,7 +13,6 @@ import { ErrorService } from './error.service';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/retry';
-import { RaceEventDefaultComponent } from '../admin/race-event/race-event-default/race-event-default.component';
 
 @Injectable()
 export class RaceEventService {

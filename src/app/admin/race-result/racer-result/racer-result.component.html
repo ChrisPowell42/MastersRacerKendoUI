@@ -1,0 +1,8 @@
+<mat-card>
+  <mat-card-title>
+    {{racerResult.racer.name}} - {{racerResult.racer.bibNumber}} <button mat-raised-button color="primary">Remove</button>
+  </mat-card-title>
+  <mat-card-content>
+      <app-run-result *ngFor='let runResult of racerResult.runResults' [runResult]='runResult' ></app-run-result>    
+  </mat-card-content>
+</mat-card>

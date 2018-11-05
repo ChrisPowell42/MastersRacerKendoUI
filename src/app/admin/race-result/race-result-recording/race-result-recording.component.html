@@ -1,3 +1,4 @@
-<p>
-  race-result-recording works!
-</p>
+<mat-toolbar>{{raceDetails.raceName}}</mat-toolbar>
+<div>
+  <app-racer-result *ngFor='let racerResult of raceResults' [racerResult]='racerResult'></app-racer-result>
+</div>

@@ -7,6 +7,7 @@ export class RaceResultModel extends basemodel {
     
     raceEventId: string;
     racerId: string;
+    racerBib: number;
     totalRaceTime: number;
     isDsqOrDnf: boolean;
     place: number;

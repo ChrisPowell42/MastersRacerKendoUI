@@ -59,6 +59,9 @@ import { RaceFormatResolverService } from '../admin-routing/race-format-resolver
 import { ArticleTypesResolverService } from '../admin-routing/article-types-resolver.service';
 import { RaceEventTypesResolverService } from '../admin-routing/race-event-types-resolver.service';
 
+import { NewRaceResultResolverService } from '../admin-routing/new-race-result-resolver.service';
+import { RaceResultsResolverService } from '../admin-routing/race-results-resolver.service';
+
 import { AuthGuardService } from '../../services/auth-guard.service';
 import { RaceResultReviewComponent } from '../race-result/race-result-review/race-result-review.component';
 
@@ -111,7 +114,8 @@ const adminRoutes: Routes = [
                                                                                                             activeSeason: ActiveSeasonResolverService},
       children: [
         {path: '', component: RaceResultDefaultComponent, canActivate: [AuthGuardService]},
-        {path: 'record/:id', component: RaceResultRecordingComponent, canActivate: [AuthGuardService]},
+        {path: 'record/:id/new', component: RaceResultRecordingComponent, canActivate: [AuthGuardService], resolve: {racerResults: NewRaceResultResolverService}},
+        {path: 'record/:id', component: RaceResultRecordingComponent, canActivate: [AuthGuardService], resolve: {racerResults: RaceResultsResolverService}},
         {path: 'review/:id', component: RaceResultReviewComponent, canActivate:[AuthGuardService]}
       ]}
 ];

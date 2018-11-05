@@ -37,6 +37,10 @@ import { NewsItemsResolverService } from './admin-routing/news-items-resolver.se
 import { NewsItemResolverService } from './admin-routing/news-item-resolver.service';
 import { NewNewsItemResolverService } from './admin-routing/new-news-item-resolver.service';
 
+import { NewRaceResultResolverService } from './admin-routing/new-race-result-resolver.service';
+import { RaceResultsResolverService } from './admin-routing/race-results-resolver.service';
+
+
 @NgModule({
   imports: [
     CommonModule,
@@ -71,7 +75,9 @@ import { NewNewsItemResolverService } from './admin-routing/new-news-item-resolv
                 RaceFormatResolverService,
                 RacePhasesResolverService,
                 ArticleTypesResolverService,
-                RaceEventTypesResolverService
+                RaceEventTypesResolverService,
+                NewRaceResultResolverService,
+                RaceResultsResolverService
              ]
 })
 export class AdminModule { }

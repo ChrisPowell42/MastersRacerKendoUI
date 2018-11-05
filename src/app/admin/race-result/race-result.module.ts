@@ -8,7 +8,8 @@ import { MatCardModule,
          MatToolbarModule, 
          MatInputModule,
          MatButtonModule,
-         MatSelectModule } from '@angular/material';
+         MatSelectModule,
+         MatCheckboxModule } from '@angular/material';
 
 import { EventListComponent } from './event-list/event-list.component';
 import { EventListItemComponent } from './event-list-item/event-list-item.component';
@@ -16,6 +17,8 @@ import { RaceResultsComponent } from './race-results/race-results.component';
 import { RaceResultDefaultComponent } from './race-result-default/race-result-default.component';
 import { RaceResultRecordingComponent } from './race-result-recording/race-result-recording.component';
 import { RaceResultReviewComponent } from './race-result-review/race-result-review.component';
+import { RunResultComponent } from './run-result/run-result.component';
+import { RacerResultComponent } from './racer-result/racer-result.component';
 
 @NgModule({
   imports: [
@@ -27,7 +30,8 @@ import { RaceResultReviewComponent } from './race-result-review/race-result-revi
     MatToolbarModule, 
     MatInputModule,
     MatButtonModule,
-    MatSelectModule
+    MatSelectModule,
+    MatCheckboxModule
   ],
   declarations: [
     EventListComponent, 
@@ -35,7 +39,9 @@ import { RaceResultReviewComponent } from './race-result-review/race-result-revi
     RaceResultsComponent, 
     RaceResultDefaultComponent, 
     RaceResultRecordingComponent, 
-    RaceResultReviewComponent
+    RaceResultReviewComponent, 
+    RunResultComponent, 
+    RacerResultComponent
   ]
 })
 export class RaceResultModule { }
